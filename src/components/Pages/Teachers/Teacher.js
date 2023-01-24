@@ -4,23 +4,19 @@ import { Link } from "react-router-dom";
 const Teacher = ({ teacher }) => {
   // console.log(teacher);
 
-  const {_id, img_link, first_name, last_name } = teacher;
+  const {_id, img_link, first_name, last_name,designation } = teacher;
   return (
-    <div>
-      <div className="card h-full bg-base-100 shadow-xl lg:card-side">
+    <Link to={`/teacher/${_id}`} className="hover:tooltip hover:tooltip-open hover:tooltip-right" data-tip="Click for Details">
+      <div className="card h-full bg-base-100 shadow-xl ">
         <figure>
-          <img src={img_link} alt="Album" />
+        <img src={img_link} alt="Album" className="scale-75" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{first_name}</h2>
-          <h2 className="card-title">{last_name}</h2>
-          {/* <p>Price: ${price}</p> */}
-          <div className="card-actions justify-end">
-            <button className="btn-primary btn"><Link to={`/teacher/${_id}`}>View Details</Link></button>
-          </div>
+          <h2 className="card-title">{first_name} {last_name}</h2>
+          <small className="card-title">{designation}</small>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
