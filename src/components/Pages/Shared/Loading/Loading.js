@@ -7,7 +7,7 @@ const Loading = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 8000);
+    }, 3000);
   }, []);
   return (
     <div className="flex h-screen w-screen items-center justify-center">

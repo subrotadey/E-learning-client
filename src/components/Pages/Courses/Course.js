@@ -6,8 +6,8 @@ const Course = ({ course }) => {
 
   const {_id, img, heading, price } = course;
   return (
-    <div className="pt-20">
-      <div className="card h-full bg-base-100 shadow-xl lg:card-side">
+    <div className="pt-20 ">
+      <div className="card h-full bg-base-100 shadow-xl lg:card-side bg-white">
         <figure>
           <img src={img} alt="Album" />
         </figure>

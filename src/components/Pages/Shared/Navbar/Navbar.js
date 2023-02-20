@@ -43,7 +43,7 @@ const Navbar = () => {
               </label>
               <ul tab="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 text-white">
                 <li><Link>Profile<span className="badge">New</span></Link></li>
-                <li><Link>Free Books</Link></li>
+                <li><Link to="/books">Free Books</Link></li>
                 <li><Link>My Classes</Link></li>
                 <li><Link>Dashboard</Link></li>
                 <li><Link>Settings</Link></li>
