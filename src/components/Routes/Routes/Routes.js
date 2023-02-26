@@ -19,15 +19,15 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "home",
+        path: "/home",
         element: <Home></Home>,
       },
       {
-        path: "login",
+        path: "/login",
         element: <Login></Login>,
       },
       {
-        path: "teachers",
+        path: "/teachers",
         loader: async () => {
           return fetch("https://edulogy.onrender.com/teacher");
         },
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         element: <TeacherDetails></TeacherDetails>,
       },
       {
-        path: "courses",
+        path: "/courses",
         loader: async () => {
           return fetch("https://edulogy.onrender.com/course");
         },
@@ -59,9 +59,9 @@ const router = createBrowserRouter([
         element: <CourseDetails></CourseDetails>,
       },
       {
-        path: "books",
-        element: <Books></Books>
-      }
+        path: "/books",
+        element: <Books></Books>,
+      },
     ],
   },
   {

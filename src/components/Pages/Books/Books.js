@@ -14,7 +14,9 @@ const Books = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           {/* <img src={banner} className="lg:max-w-sm md:max-w-sm sm:w-100 rounded-lg shadow-2xl" alt="" /> */}
           <div className="dark:text-black">
-            <h1 className="text-5xl font-bold">Books were safer than other people anyway</h1>
+            <h1 className="text-5xl font-bold">
+              Books were safer than other people anyway
+            </h1>
             <p className="py-6">
               Neil Gaiman, The Ocean at the End of the Lane
             </p>
