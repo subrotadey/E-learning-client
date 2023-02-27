@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Course = ({ course }) => {
-  // console.log(course);
+  console.log(course);
 
   const {_id, img, heading, price } = course;
   return (
@@ -11,8 +11,10 @@ const Course = ({ course }) => {
         <figure>
           <img src={img} alt="Album" />
         </figure>
+        
         <div className="card-body">
           <h2 className="card-title">{heading}</h2>
+          
           {/* <h2 className="card-title">{last_name}</h2> */}
           <p>Price: ${price}</p>
           <div className="card-actions justify-end">
