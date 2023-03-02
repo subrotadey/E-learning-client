@@ -9,7 +9,7 @@ const Footer = () => {
         <h1>Stay Connected With Us!</h1>
       </div>
       <div
-      className="dark:text-white"
+      className="text-white"
       style={{
         background: `url(${footer})`,
         backgroundSize: "cover",

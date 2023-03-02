@@ -64,7 +64,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex="0"
-            className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 text-lg shadow "
+            className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 text-lg text-white shadow	"
           >
             {menuItems}
           </ul>
@@ -75,7 +75,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center ml-auto hidden lg:flex ">
-        <ul className="menu menu-horizontal px-1 text-lg text-white">
+        <ul className="menu menu-horizontal px-1 text-lg text-light">
           {menuItems}
         </ul>
       </div>
@@ -87,8 +87,9 @@ const Navbar = () => {
         </label>
         <ul
           tab="0"
-          className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 text-white shadow"
+          className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 text-light shadow"
         >
+          <li><img src="https://placeimg.com/80/80/people" alt="" className="rounded-full" /></li>
           <li>
             <Link>
               Profile<span className="badge">New</span>

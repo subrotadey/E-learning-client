@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Course = ({ course }) => {
-  console.log(course);
+  // console.log(course);
 
   const {_id, img, heading, price } = course;
   return (
-    <div className="pt-20 ">
-      <div className="card h-full bg-base-100 shadow-xl lg:card-side bg-white">
+    <div className="pt-12 ">
+      <div className="card h-full bg-base-300 shadow-xl lg:card-side">
         <figure>
           <img src={img} alt="Album" />
         </figure>

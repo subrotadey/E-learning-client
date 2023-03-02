@@ -8,7 +8,7 @@ const HomeCourses = () => {
     const sliceTeacher = courses.slice(0, 3);
     return (
         <div className='mb-4 px-12'>
-            <div className='border-l-8 border-l-indigo-600 p-6 m-6  text-gray-600 dark:text-white'>
+            <div className='border-l-8 border-l-indigo-600 p-6 m-6  text-white'>
                 <h1 className='text-6xl font-bold italic uppercase'>
                     <span  className='text-2xl font-bold text-indigo-500'>popular <br /></span>
                     courses</h1>
