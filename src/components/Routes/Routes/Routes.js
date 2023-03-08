@@ -3,11 +3,14 @@ import Main from "../../../Layout/Main";
 import Books from "../../Pages/Books/Books";
 import CourseDetails from "../../Pages/Courses/CourseDetails";
 import Courses from "../../Pages/Courses/Courses";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import NotFound from "../../Pages/NotFound/NotFound";
+import SignUp from "../../Pages/SignUp/SignUp";
 import TeacherDetails from "../../Pages/Teachers/TeacherDetails";
 import Teachers from "../../Pages/Teachers/Teachers";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
       },
       {
         path: "/teachers",
@@ -63,6 +70,12 @@ const router = createBrowserRouter([
         element: <Books></Books>,
       },
     ],
+  },
+  {
+    path: '/dashboard',
+    element: <PrivateRoute>
+      <Dashboard></Dashboard>
+    </PrivateRoute>
   },
   {
     path: "*",

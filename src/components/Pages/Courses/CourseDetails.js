@@ -14,7 +14,7 @@ const CourseDetails = () => {
   const [selectedDate] = useState(new Date());
 
   return (
-    <div className="p-20 h-screen">
+    <div className="lg:p-20">
       <h2 className="text-center text-3xl	font-medium">Course Details</h2>
       <div className="divider"></div>
       <div className="hero ">
@@ -47,7 +47,7 @@ const CourseDetails = () => {
         </div>
       </div> */}
       <div className="text-center">
-        <div className="flex justify-evenly">
+        <div className="lg:flex justify-evenly text-white px-2">
           <div>
             <p className="text-2xl font-bold">{format(selectedDate, "PP")}</p>
             <h2 className="text-2xl">{heading}</h2>
@@ -55,24 +55,24 @@ const CourseDetails = () => {
             {/* <h1 className="text-xl">{heading}</h1> */}
           </div>
           <div>
-            <button className="btn-primary btn">Buy Now</button>
+            <button className="btn-primary btn my-3">Buy Now</button>
           </div>
         </div>
         <div className="divider mx-auto w-1/2"></div>
-        <div className="flex justify-evenly">
-          <div className="flex text-lg">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 text-white">
+          <div className="flex text-lg  mx-auto">
             <BsClock className="my-auto mr-3 "></BsClock>
             <p>Weeks: {weeks}</p>
           </div>
-          <div className="flex text-lg">
+          <div className="flex text-lg  mx-auto">
             <GiNetworkBars className="my-auto mr-3 "> </GiNetworkBars>
             <p>Level: {level}</p>
           </div>
-          <div className="flex text-lg">
+          <div className="flex text-lg  mx-auto">
             <MdQuiz className="my-auto mr-3 "> </MdQuiz>
             <p>Quiz: {quiz}</p>
           </div>
-          <div className="flex text-lg">
+          <div className="flex text-lg  mx-auto">
             <FaUserGraduate className="my-auto mr-3 "> </FaUserGraduate>
             <p>Students: {students}</p>
           </div>

@@ -13,7 +13,7 @@ const Course = ({ course }) => {
         </figure>
         
         <div className="card-body">
-          <h2 className="card-title">{heading}</h2>
+          <h2 className="card-title text-white">{heading}</h2>
           
           {/* <h2 className="card-title">{last_name}</h2> */}
           <p>Price: ${price}</p>
