@@ -9,11 +9,12 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateUser, providerLogin } = useContext(AuthContext);
+    const { createUser, updateUser, providerLogin, verifyEmail } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('')
     const googleProvider = new GoogleAuthProvider();
 
     const handleSignUp = (data) => {
+        // data.preventDefault();
         console.log(data);
         setSignUpError('');
         createUser(data.email, data.password)
@@ -21,13 +22,19 @@ const SignUp = () => {
             const user = result.user;
             console.log(user);
             toast('User Created Successfully')
+            verifyEmail(user)
+            .then(() => {});
             const userInfo = {
                 displayName: data.name
             }
+            // const verifyEmail()
+            // .then(() => {})
             updateUser(userInfo)
             .then(() => {})
             .catch(err => console.log(err));
+            
         })
+        
         .catch(error => {
             console.log(error)
             setSignUpError(error.message)

@@ -4,13 +4,17 @@ import { useState } from "react";
 import { useContext } from "react";
 // import entry from "./../../assets/images/entry.png";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Login = () => {
   const { register,formState: { errors }, handleSubmit } = useForm();
-  const { signIn, providerLogin } = useContext(AuthContext);
+  const { signIn, providerLogin, resetPassword } = useContext(AuthContext);
   const [loginError, setLoginError] = useState('');
+
+  const [userEmail, setUserEmail] = useState('');
+
   const location = useLocation();
   const navigate = useNavigate();
   const googleProvider = new GoogleAuthProvider();
@@ -41,6 +45,23 @@ const Login = () => {
     .catch(error => console.error(error));
   }
 
+  const handleEmailBlur = (event) => {
+    const email = event.target.value
+    setUserEmail(email);
+    console.log(email);
+  }
+
+  const handleForgotPassword = () => {
+    resetPassword(userEmail)
+    .then(() => { 
+      toast('Password Reset Email Sent Successfully')
+     })
+    .catch((error) => {
+      const errorMessage = error.message;
+      console.log(errorMessage);
+    });
+  }
+
 
   return (
     <div className="flex h-screen items-center justify-center border-accent">
@@ -49,12 +70,13 @@ const Login = () => {
           <h2 className="text-xl text-center">Login</h2>
           <div className="form-control w-full max-w-xs">
             <label className="label"><span className="label-text">Email</span></label>
-            <input 
+            <input
             {...register("email", {
               required: "Email Address is required"
             })} 
             aria-invalid={errors.email ? "true" : "false"}
             type="email" 
+            onBlur={handleEmailBlur}
             className="input-bordered input w-full max-w-xs"/>
             {errors.email && <p className="text-red-600">{errors.email?.message}</p>}
           </div>
@@ -68,7 +90,9 @@ const Login = () => {
             type="password" 
             className="input-bordered input w-full max-w-xs"/>
             {errors.password && <p className="text-red-600">{errors.password?.message}</p>}
-            <label className="label"><span className="label-text text-red-600"><Link>Forget Password?</Link></span></label>
+            <label className="label">
+              <span className="label-text text-red-600">
+                <Link onClick={handleForgotPassword}>Forget Password?</Link></span></label>
           </div>
           <input type="submit" value="Login" className="btn btn-accent w-full"/>
           <div>
