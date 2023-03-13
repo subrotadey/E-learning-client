@@ -13,8 +13,8 @@ const SignUp = () => {
     const [signUpError, setSignUpError] = useState('')
     const googleProvider = new GoogleAuthProvider();
 
-    const handleSignUp = (data) => {
-        // data.preventDefault();
+    const handleSignUp = (data, e) => {
+        // e.preventDefault();
         console.log(data);
         setSignUpError('');
         createUser(data.email, data.password)

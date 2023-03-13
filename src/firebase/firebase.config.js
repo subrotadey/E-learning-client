@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_apiKey,
-  authDomain: process.env.REACT_APP_authDomain,
-  projectId: process.env.REACT_APP_projectId,
-  storageBucket: process.env.REACT_APP_storageBucket,
-  messagingSenderId: process.env.REACT_APP_messagingSenderId,
-  appId: process.env.REACT_APP_appId,
+  apiKey: "AIzaSyDd1I-C2_3S4B7U-F4lEpayryP9h-ckiEg",
+  authDomain: "edulogy-online.firebaseapp.com",
+  projectId: "edulogy-online",
+  storageBucket: "edulogy-online.appspot.com",
+  messagingSenderId: "859358953601",
+  appId: "1:859358953601:web:f499aca6044bfd95068d80",
 };
 
 // Initialize Firebase
@@ -18,3 +18,13 @@ const app = initializeApp(firebaseConfig);
 
 
 export default app;
+
+
+
+
+// apiKey: "AIzaSyDd1I-C2_3S4B7U-F4lEpayryP9h-ckiEg",
+// authDomain: "edulogy-online.firebaseapp.com",
+// projectId: "edulogy-online",
+// storageBucket: "edulogy-online.appspot.com",
+// messagingSenderId: "859358953601",
+// appId: "1:859358953601:web:f499aca6044bfd95068d80",

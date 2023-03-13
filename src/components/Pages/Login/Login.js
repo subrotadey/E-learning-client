@@ -21,8 +21,9 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || '/'
 
-  const handleLogin = data => {
+  const handleLogin = (data, e) => {
     console.log(data);
+    // e.preventDefault();
     setLoginError('');
     signIn(data.email, data.password)
     .then(result => {
