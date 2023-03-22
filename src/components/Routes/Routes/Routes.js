@@ -1,11 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "../../../Layout/DashboardLayout";
 import Main from "../../../Layout/Main";
 import AboutUs from "../../Pages/AboutUs/AboutUs";
 import Books from "../../Pages/Books/Books";
 import Contact from "../../Pages/Contact/Contact";
 import CourseDetails from "../../Pages/Courses/CourseDetails";
 import Courses from "../../Pages/Courses/Courses";
-import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
+import MyBooking from "../../Pages/Dashboard/MyBooking/MyBooking";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import NotFound from "../../Pages/NotFound/NotFound";
@@ -82,10 +83,14 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: '/dashboard',
-    element: <PrivateRoute>
-      <Dashboard></Dashboard>
-    </PrivateRoute>
+    path: "/dashboard",
+    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    children: [
+      {
+        path: '/dashboard',
+        element: <MyBooking></MyBooking>
+      }
+    ]
   },
   {
     path: "*",

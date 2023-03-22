@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const SignUp = () => {
@@ -12,6 +12,10 @@ const SignUp = () => {
     const { createUser, updateUser, providerLogin, verifyEmail } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('')
     const googleProvider = new GoogleAuthProvider();
+    const location = useLocation();
+  const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/'
 
     const handleSignUp = (data, e) => {
         // e.preventDefault();
@@ -21,6 +25,7 @@ const SignUp = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            
             toast('User Created Successfully')
             verifyEmail(user)
             .then(() => {});
@@ -30,7 +35,9 @@ const SignUp = () => {
             // const verifyEmail()
             // .then(() => {})
             updateUser(userInfo)
-            .then(() => {})
+            .then(() => {
+                navigate(from, {replace: true});
+            })
             .catch(err => console.log(err));
             
         })

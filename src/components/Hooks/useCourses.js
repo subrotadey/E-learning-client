@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 const useCourses = () => {
-  const [courses, setCourses] = useState([]);
+  const { data: courses = [] } = useQuery({
+    queryKey: ["courses"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/courses");
+      const data = await res.json();
+      return data;
+    },
+  });
 
-  useEffect(() => {
-    fetch("https://edulogy.onrender.com/course")
-      .then((res) => res.json())
-      .then((data) => setCourses(data));
-  }, []);
-  
-  return [courses, setCourses];
-
+  return [courses];
 };
 
 export default useCourses;
