@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useToken from '../../Hooks/useToken';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -13,9 +14,17 @@ const SignUp = () => {
     const [signUpError, setSignUpError] = useState('')
     const googleProvider = new GoogleAuthProvider();
     const location = useLocation();
-  const navigate = useNavigate();
+    const [userCreatedEmail, setUserCreatedEmail] = useState('')
+    const [token] = useToken(userCreatedEmail);
+    const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/'
+
+  if(token){
+    navigate(from, {replace: true});
+  }
+
+    // 
 
     const handleSignUp = (data, e) => {
         // e.preventDefault();
@@ -25,18 +34,15 @@ const SignUp = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
-            
             toast('User Created Successfully')
             verifyEmail(user)
             .then(() => {});
             const userInfo = {
                 displayName: data.name
             }
-            // const verifyEmail()
-            // .then(() => {})
             updateUser(userInfo)
             .then(() => {
-                navigate(from, {replace: true});
+                saveUser(data.name, data.email);
             })
             .catch(err => console.log(err));
             
@@ -57,6 +63,24 @@ const SignUp = () => {
         .catch(error => console.error(error));
       }
 
+      const saveUser = (name, email) => {
+        const user = {name, email};
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers:{
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            setUserCreatedEmail(email)
+            // console.log( 'save user',data);
+            
+        })
+      }
+
+      
 
     return (
         <div>

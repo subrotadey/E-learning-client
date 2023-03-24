@@ -6,6 +6,7 @@ import Books from "../../Pages/Books/Books";
 import Contact from "../../Pages/Contact/Contact";
 import CourseDetails from "../../Pages/Courses/CourseDetails";
 import Courses from "../../Pages/Courses/Courses";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import MyBooking from "../../Pages/Dashboard/MyBooking/MyBooking";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -13,6 +14,7 @@ import NotFound from "../../Pages/NotFound/NotFound";
 import SignUp from "../../Pages/SignUp/SignUp";
 import TeacherDetails from "../../Pages/Teachers/TeacherDetails";
 import Teachers from "../../Pages/Teachers/Teachers";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -89,7 +91,11 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <MyBooking></MyBooking>
-      }
+      },
+      {
+        path: '/dashboard/allusers',
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
     ]
   },
   {

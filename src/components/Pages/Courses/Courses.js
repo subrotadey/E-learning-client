@@ -14,7 +14,7 @@ const Courses = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 30);
+    }, 300);
   }, []);
   return (
     <div className="flex items-center justify-center pt-20">
