@@ -7,6 +7,7 @@ import { BiLogOutCircle } from "react-icons/bi";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user);
   const handleLogOut = () => {
     logOut()
     .then(()=> {})
@@ -86,19 +87,19 @@ const Navbar = () => {
           tab="0"
           className="text-light dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
         >
-          {/* <li>
-            <img
-              src="https://placeimg.com/80/80/people"
-              alt=""
-              className="rounded-full"
-            />
-          </li> */}
-          
           {user?.uid ? (
             <>
-              <li><Link>Profile<span className="badge">New</span></Link></li>
-              <li><Link>My Classes</Link></li>
-              <li><Link>Settings</Link></li>
+              <li className="">
+                <div className="avatar mx-auto">
+                  <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <img src={user.photoURL} alt=""/>
+                  </div>
+                  
+                </div>
+                
+              </li>
+              <h2 className="text-center">{user.displayName}</h2>
+              <div className="divider"></div>
               <li><Link  htmlFor="dashboard-drawer" to="/dashboard">Dashboard</Link></li>
               <li><button onClick={handleLogOut} className="mx-1">Sign Out</button></li>
             </>

@@ -18,7 +18,7 @@ const MyBooking = () => {
         }
       });
       const data = await res.json();
-      return data; 
+      return data;
     },
   });
 
@@ -30,14 +30,16 @@ const MyBooking = () => {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
+              <th>Serial No</th>
               <th>Name</th>
               <th>Course</th>
               <th>Date</th>
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking, i) => (
+            {
+            bookings &&
+            bookings?.map((booking, i) => (
               <tr key={booking._id} className="hover">
                 <th>{i+1}</th>
                 <td>{booking.userName}</td>

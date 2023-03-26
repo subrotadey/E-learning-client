@@ -4,18 +4,14 @@ import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const BookingModal = ({selectedDate, heading}) => {
-
     const date = format(selectedDate, "PP");
-
     const {user} = useContext(AuthContext)
-
     console.log(user);
 
     const handleBooking = event => {
         event.preventDefault();
         const form = event.target;
         const heading = form.heading.value;
-        // const date = form.date.value;
         const name = form.name.value;
         const email = form.email.value;
         const phone = form.phone.value;

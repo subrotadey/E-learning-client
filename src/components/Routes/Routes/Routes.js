@@ -6,7 +6,11 @@ import Books from "../../Pages/Books/Books";
 import Contact from "../../Pages/Contact/Contact";
 import CourseDetails from "../../Pages/Courses/CourseDetails";
 import Courses from "../../Pages/Courses/Courses";
+import AddCourse from "../../Pages/Dashboard/AddCourse/AddCourse";
+import AddTeacher from "../../Pages/Dashboard/AddTeacher/AddTeacher";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+import UpdateCourse from "../../Pages/Dashboard/ManageCourses/UpdateCourse";
+import ManageTeachers from "../../Pages/Dashboard/ManageTeachers/ManageTeachers";
 import MyBooking from "../../Pages/Dashboard/MyBooking/MyBooking";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -16,6 +20,7 @@ import TeacherDetails from "../../Pages/Teachers/TeacherDetails";
 import Teachers from "../../Pages/Teachers/Teachers";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ManageCourses from "../../Pages/Dashboard/ManageCourses/ManageCourses";
 
 const router = createBrowserRouter([
   {
@@ -49,15 +54,15 @@ const router = createBrowserRouter([
       {
         path: "/teachers",
         loader: async () => {
-          return fetch("https://edulogy.onrender.com/teacher");
+          return fetch("http://localhost:5000/teachers");
         },
         element: <Teachers></Teachers>,
       },
       {
-        path: "/teacher/:teacherId",
+        path: "/teachers/:teacherId",
         loader: async ({ params }) => {
           return fetch(
-            `https://edulogy.onrender.com/teacher/${params.teacherId}`
+            `http://localhost:5000/teachers/${params.teacherId}`
           );
         },
         element: <TeacherDetails></TeacherDetails>,
@@ -65,7 +70,7 @@ const router = createBrowserRouter([
       {
         path: "/courses",
         loader: async () => {
-          return fetch("https://edulogy.onrender.com/course");
+          return fetch("http://localhost:5000/courses");
         },
         element: <Courses></Courses>,
       },
@@ -73,7 +78,7 @@ const router = createBrowserRouter([
         path: "/course/:courseId",
         loader: async ({ params }) => {
           return fetch(
-            `https://edulogy.onrender.com/course/${params.courseId}`
+            `http://localhost:5000/courses/${params.courseId}`
           );
         },
         element: <CourseDetails></CourseDetails>,
@@ -95,6 +100,26 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/allusers',
         element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+        path: '/dashboard/addcourse',
+        element: <AdminRoute><AddCourse></AddCourse></AdminRoute>
+      },
+      {
+        path: '/dashboard/managecourses',
+        element: <AdminRoute><ManageCourses></ManageCourses></AdminRoute>
+      },
+      {
+        path: '/dashboard/updateCourse/:id',
+        element: <AdminRoute><UpdateCourse></UpdateCourse></AdminRoute>
+      },
+      {
+        path: '/dashboard/addteacher',
+        element: <AdminRoute><AddTeacher></AddTeacher></AdminRoute>
+      },
+      {
+        path: '/dashboard/manageteachers',
+        element: <AdminRoute><ManageTeachers></ManageTeachers></AdminRoute>
       },
     ]
   },

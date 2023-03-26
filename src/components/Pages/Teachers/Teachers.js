@@ -10,7 +10,7 @@ const Teachers = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 300);
   }, []);
   return (
     <div className="flex items-center justify-center">
@@ -19,8 +19,8 @@ const Teachers = () => {
       ) : (
         <div className="pt-12">
           <h1>This is courses</h1>
-          <div className="mx-12 grid grid-cols-1 gap-4 lg:grid-cols-3">
-            {teachers.map((teacher) => (
+          <div className="mx-12 grid grid-cols-1 gap-4 lg:grid-cols-4">
+            {teachers?.map((teacher) => (
               <Teacher key={teacher._id} teacher={teacher}></Teacher>
             ))}
           </div>
