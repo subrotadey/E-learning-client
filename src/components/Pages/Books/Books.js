@@ -1,12 +1,12 @@
 import React from "react";
-import bgbook from "../../assets/images/book3.jpg";
+import bgBook from "../../assets/images/book3.jpg";
 
 const Books = () => {
   return (
     <div
       className="h-full w-full overflow-x-hidden bg-cover bg-no-repeat"
       style={{
-        background: `url(${bgbook})`,
+        background: `url(${bgBook})`,
         backgroundSize: "cover",
       }}
     >

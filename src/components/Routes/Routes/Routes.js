@@ -21,11 +21,14 @@ import Teachers from "../../Pages/Teachers/Teachers";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ManageCourses from "../../Pages/Dashboard/ManageCourses/ManageCourses";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
+import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <DisplayError></DisplayError>,
     children: [
       {
         path: "/",
@@ -54,7 +57,9 @@ const router = createBrowserRouter([
       {
         path: "/teachers",
         loader: async () => {
-          return fetch("http://localhost:5000/teachers");
+          return fetch(
+            "https://learning-server-site-three.vercel.app/teachers"
+          );
         },
         element: <Teachers></Teachers>,
       },
@@ -62,7 +67,7 @@ const router = createBrowserRouter([
         path: "/teachers/:teacherId",
         loader: async ({ params }) => {
           return fetch(
-            `http://localhost:5000/teachers/${params.teacherId}`
+            `https://learning-server-site-three.vercel.app/teachers/${params.teacherId}`
           );
         },
         element: <TeacherDetails></TeacherDetails>,
@@ -70,7 +75,7 @@ const router = createBrowserRouter([
       {
         path: "/courses",
         loader: async () => {
-          return fetch("http://localhost:5000/courses");
+          return fetch("https://learning-server-site-three.vercel.app/courses");
         },
         element: <Courses></Courses>,
       },
@@ -78,7 +83,7 @@ const router = createBrowserRouter([
         path: "/course/:courseId",
         loader: async ({ params }) => {
           return fetch(
-            `http://localhost:5000/courses/${params.courseId}`
+            `https://learning-server-site-three.vercel.app/courses/${params.courseId}`
           );
         },
         element: <CourseDetails></CourseDetails>,
@@ -91,37 +96,78 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
+    errorElement: <DisplayError></DisplayError>,
     children: [
       {
-        path: '/dashboard',
-        element: <MyBooking></MyBooking>
+        path: "/dashboard",
+        element: <MyBooking></MyBooking>,
       },
       {
-        path: '/dashboard/allusers',
-        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        path: "/dashboard/allusers",
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
       },
       {
-        path: '/dashboard/addcourse',
-        element: <AdminRoute><AddCourse></AddCourse></AdminRoute>
+        path: "/dashboard/addcourse",
+        element: (
+          <AdminRoute>
+            <AddCourse></AddCourse>
+          </AdminRoute>
+        ),
       },
       {
-        path: '/dashboard/managecourses',
-        element: <AdminRoute><ManageCourses></ManageCourses></AdminRoute>
+        path: "/dashboard/managecourses",
+        element: (
+          <AdminRoute>
+            <ManageCourses></ManageCourses>
+          </AdminRoute>
+        ),
       },
       {
-        path: '/dashboard/updateCourse/:id',
-        element: <AdminRoute><UpdateCourse></UpdateCourse></AdminRoute>
+        path: "/dashboard/updateCourse/:id",
+        element: (
+          <AdminRoute>
+            <UpdateCourse></UpdateCourse>
+          </AdminRoute>
+        ),
       },
       {
-        path: '/dashboard/addteacher',
-        element: <AdminRoute><AddTeacher></AddTeacher></AdminRoute>
+        path: "/dashboard/addteacher",
+        element: (
+          <AdminRoute>
+            <AddTeacher></AddTeacher>
+          </AdminRoute>
+        ),
       },
       {
-        path: '/dashboard/manageteachers',
-        element: <AdminRoute><ManageTeachers></ManageTeachers></AdminRoute>
+        path: "/dashboard/manageteachers",
+        element: (
+          <AdminRoute>
+            <ManageTeachers></ManageTeachers>
+          </AdminRoute>
+        ),
       },
-    ]
+      {
+        path: "/dashboard/payment/:id",
+        element: (
+          <AdminRoute>
+            <Payment></Payment>
+          </AdminRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://learning-server-site-three.vercel.app/bookings/${params.id}`
+          ),
+      },
+    ],
   },
   {
     path: "*",

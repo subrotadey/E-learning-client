@@ -24,16 +24,16 @@ const Contact = () => {
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
                     {" "}
-                    <span className="label-text">Password</span>
+                    <span className="label-text">Your Message</span>
                   </label>
                   <input
-                    type="password"
+                    type="text"
                     className="input-bordered input w-full max-w-xs"
                   />
                 </div>
                 <input
                   type="submit"
-                  value="Login"
+                  value="Send"
                   className="btn-accent btn w-full mt-4"
                 />
                 <div></div>

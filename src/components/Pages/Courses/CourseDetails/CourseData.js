@@ -9,7 +9,7 @@ import BookingModal from "./BookingModal";
 const CourseData = ({selectedDate}) => {
   const course = useLoaderData();
   
-  const { heading,level, quiz, students, weeks } = course;
+  const { heading,price, level, quiz, students, weeks } = course;
 
   return (
     <div>
@@ -20,7 +20,7 @@ const CourseData = ({selectedDate}) => {
           </div>
           <div>
             <label htmlFor="booking-modal" className="btn-primary btn my-3">Enroll Now</label>
-            <BookingModal selectedDate={selectedDate} heading={heading}></BookingModal>
+            <BookingModal selectedDate={selectedDate} heading={heading} price={price}></BookingModal>
           </div>
         </div>
         <div className="divider mx-auto w-1/2"></div>

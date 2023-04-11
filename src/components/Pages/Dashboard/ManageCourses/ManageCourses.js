@@ -10,15 +10,22 @@ const ManageCourses = () => {
   const closeModal = () => {
     setDeletingCourse(null);
   };
-  const {data: courses,isLoading,refetch,} = useQuery({
+  const {
+    data: courses,
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["courses"],
     queryFn: async () => {
       try {
-        const res = await fetch("http://localhost:5000/courses", {
-          headers: {
-            authorization: `bearer ${localStorage.getItem("accessToken")}`,
-          },
-        });
+        const res = await fetch(
+          "https://learning-server-site-three.vercel.app/courses",
+          {
+            headers: {
+              authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        );
         const data = await res.json();
         return data;
       } catch (error) {
@@ -28,12 +35,15 @@ const ManageCourses = () => {
   });
 
   const handleDeleteCourse = (course) => {
-    fetch(`http://localhost:5000/courses/${course._id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://learning-server-site-three.vercel.app/courses/${course._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -91,7 +101,7 @@ const ManageCourses = () => {
                   <td>
                     <Link to={`/dashboard/updateCourse/${course._id}`}>
                       {
-                        <button className="btn-sm btn btn-success">
+                        <button className="btn-success btn-sm btn">
                           Update
                         </button>
                       }
