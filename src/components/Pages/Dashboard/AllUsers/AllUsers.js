@@ -7,7 +7,7 @@ const AllUsers = () => {
     queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch(
-        "https://learning-server-site-three.vercel.app/users"
+        "https://learning-server-site-subrotadey540-gmailcom.vercel.app/users"
       );
       const data = await res.json();
       return data;
@@ -15,12 +15,15 @@ const AllUsers = () => {
   });
 
   const handleMakeAdmin = (id) => {
-    fetch(`https://learning-server-site-three.vercel.app/users/admin/${id}`, {
-      method: "PUT",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://learning-server-site-subrotadey540-gmailcom.vercel.app/users/admin/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

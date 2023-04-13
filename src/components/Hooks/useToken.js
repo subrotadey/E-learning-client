@@ -5,7 +5,9 @@ const useToken = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`https://learning-server-site-three.vercel.app/jwt?email=${email}`)
+      fetch(
+        `https://learning-server-site-subrotadey540-gmailcom.vercel.app/jwt?email=${email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.accessToken) {

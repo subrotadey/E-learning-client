@@ -36,14 +36,17 @@ const AddCourse = () => {
           };
 
           // save teacher information to the server
-          fetch("https://learning-server-site-three.vercel.app/courses", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(course),
-          })
+          fetch(
+            "https://learning-server-site-subrotadey540-gmailcom.vercel.app/courses",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(course),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               if (result.acknowledged) {

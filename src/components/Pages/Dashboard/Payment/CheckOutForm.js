@@ -15,7 +15,7 @@ const CheckOutForm = ({ booking }) => {
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     fetch(
-      "https://learning-server-site-three.vercel.app/create-payment-intent",
+      "https://learning-server-site-subrotadey540-gmailcom.vercel.app/create-payment-intent",
       {
         method: "POST",
         headers: {
@@ -81,14 +81,17 @@ const CheckOutForm = ({ booking }) => {
         email,
         bookingId: _id,
       };
-      fetch("https://learning-server-site-three.vercel.app/payments", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(payment),
-      })
+      fetch(
+        "https://learning-server-site-subrotadey540-gmailcom.vercel.app/payments",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify(payment),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

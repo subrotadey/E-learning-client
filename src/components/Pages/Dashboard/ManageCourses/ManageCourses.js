@@ -19,7 +19,7 @@ const ManageCourses = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          "https://learning-server-site-three.vercel.app/courses",
+          "https://learning-server-site-subrotadey540-gmailcom.vercel.app/courses",
           {
             headers: {
               authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -36,7 +36,7 @@ const ManageCourses = () => {
 
   const handleDeleteCourse = (course) => {
     fetch(
-      `https://learning-server-site-three.vercel.app/courses/${course._id}`,
+      `https://learning-server-site-subrotadey540-gmailcom.vercel.app/courses/${course._id}`,
       {
         method: "DELETE",
         headers: {

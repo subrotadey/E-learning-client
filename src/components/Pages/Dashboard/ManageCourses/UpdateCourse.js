@@ -15,7 +15,7 @@ const UpdateCourse = () => {
   } = useForm();
 
   useEffect(() => {
-    const url = `https://learning-server-site-three.vercel.app/courses/${id}`;
+    const url = `https://learning-server-site-subrotadey540-gmailcom.vercel.app/courses/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setCourse(data));
@@ -34,7 +34,7 @@ const UpdateCourse = () => {
     };
 
     //send data to the server
-    const url = `https://learning-server-site-three.vercel.app/courses/${id}`;
+    const url = `https://learning-server-site-subrotadey540-gmailcom.vercel.app/courses/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

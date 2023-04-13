@@ -7,7 +7,7 @@ const MyBooking = () => {
   const { user } = useContext(AuthContext);
   // console.log(user);
 
-  const url = `https://learning-server-site-three.vercel.app/bookings?email=${user?.email}`;
+  const url = `https://learning-server-site-subrotadey540-gmailcom.vercel.app/bookings?email=${user?.email}`;
 
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings", user?.email],

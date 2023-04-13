@@ -34,14 +34,17 @@ const AddTeacher = () => {
           };
 
           // save teacher information to the server
-          fetch("https://learning-server-site-three.vercel.app/teachers", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(teacher),
-          })
+          fetch(
+            "https://learning-server-site-subrotadey540-gmailcom.vercel.app/teachers",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(teacher),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               if (result.acknowledged) {
