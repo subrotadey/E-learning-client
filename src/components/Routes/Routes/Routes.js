@@ -57,36 +57,28 @@ const router = createBrowserRouter([
       {
         path: "/teachers",
         loader: async () => {
-          return fetch(
-            "https://learning-server-site-subrotadey540-gmailcom.vercel.app/teachers"
-          );
+          return fetch("http://localhost:5000/teachers");
         },
         element: <Teachers></Teachers>,
       },
       {
         path: "/teachers/:teacherId",
         loader: async ({ params }) => {
-          return fetch(
-            `https://learning-server-site-subrotadey540-gmailcom.vercel.app/teachers/${params.teacherId}`
-          );
+          return fetch(`http://localhost:5000/teachers/${params.teacherId}`);
         },
         element: <TeacherDetails></TeacherDetails>,
       },
       {
         path: "/courses",
         loader: async () => {
-          return fetch(
-            "https://learning-server-site-subrotadey540-gmailcom.vercel.app/courses"
-          );
+          return fetch("http://localhost:5000/courses");
         },
         element: <Courses></Courses>,
       },
       {
         path: "/course/:courseId",
         loader: async ({ params }) => {
-          return fetch(
-            `https://learning-server-site-subrotadey540-gmailcom.vercel.app/courses/${params.courseId}`
-          );
+          return fetch(`http://localhost:5000/courses/${params.courseId}`);
         },
         element: <CourseDetails></CourseDetails>,
       },
@@ -165,9 +157,7 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://learning-server-site-subrotadey540-gmailcom.vercel.app/bookings/${params.id}`
-          ),
+          fetch(`http://localhost:5000/bookings/${params.id}`),
       },
     ],
   },

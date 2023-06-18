@@ -1,29 +1,29 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-hot-toast";
+import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal";
 
 const AllUsers = () => {
+  const [deletingUser, setDeletingUser] = useState(null);
+  const closeModal = () => {
+    setDeletingUser(null);
+  };
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(
-        "https://learning-server-site-subrotadey540-gmailcom.vercel.app/users"
-      );
+      const res = await fetch("http://localhost:5000/users");
       const data = await res.json();
       return data;
     },
   });
 
   const handleMakeAdmin = (id) => {
-    fetch(
-      `https://learning-server-site-subrotadey540-gmailcom.vercel.app/users/admin/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    )
+    fetch(`http://localhost:5000/users/admin/${id}`, {
+      method: "PUT",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -32,6 +32,26 @@ const AllUsers = () => {
         }
       });
   };
+
+  const handleDeleteUser = (user) => {
+    fetch(`http://localhost:5000/users/${user._id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result.deletedCount > 0) {
+          toast.success(`${user?.name} Successfully Deleted!`);
+          refetch();
+        } else {
+          toast.error(result.message);
+        }
+      });
+  };
+
   return (
     <div>
       <h3 className="mb-5 text-3xl">All Users</h3>
@@ -64,16 +84,31 @@ const AllUsers = () => {
                   )}
                 </td>
                 <td>
-                  <button className="btn-xs btn bg-red-800">Delete</button>
+                  <label
+                    onClick={() => setDeletingUser(user)}
+                    htmlFor="confirmation-modal"
+                    className="btn-xs btn bg-red-800"
+                  >
+                    Delete
+                  </label>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {deletingUser && (
+        <ConfirmationModal
+          title={`Are you sure want to delete this course?`}
+          message={`If You delete ${deletingUser.name}. It cannot be undone`}
+          successAction={handleDeleteUser}
+          successButtonName="Delete"
+          modalData={deletingUser}
+          closeModal={closeModal}
+        ></ConfirmationModal>
+      )}
     </div>
   );
 };
 
 export default AllUsers;
-<h2>All Users</h2>;

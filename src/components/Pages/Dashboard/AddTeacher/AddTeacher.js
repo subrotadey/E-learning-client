@@ -34,17 +34,14 @@ const AddTeacher = () => {
           };
 
           // save teacher information to the server
-          fetch(
-            "https://learning-server-site-subrotadey540-gmailcom.vercel.app/teachers",
-            {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-                authorization: `bearer ${localStorage.getItem("accessToken")}`,
-              },
-              body: JSON.stringify(teacher),
-            }
-          )
+          fetch("http://localhost:5000/teachers", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(teacher),
+          })
             .then((res) => res.json())
             .then((result) => {
               if (result.acknowledged) {
@@ -155,13 +152,10 @@ const AddTeacher = () => {
               {" "}
               <span className="label-text">Photo</span>
             </label>
-            <input
-              type="file"
-              {...register("image", {
-                required: "Photo is Required",
-              })}
-              className="input-bordered input w-full max-w-xs"
+            <input type="file" {...register("image", { required: "Photo is Required", })}
+              className="file-input-bordered file-input-accent file-input w-full max-w-xs"
             />
+            {/* <input type="file" {...register("image", { required: "Photo is Required", })} className="file-input-bordered file-input-accent file-input w-full max-w-xs"/> */}
             {errors.image && (
               <p className="text-red-500">{errors.image.message}</p>
             )}

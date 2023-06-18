@@ -4,9 +4,7 @@ const useCourses = () => {
   const { data: courses = [] } = useQuery({
     queryKey: ["courses"],
     queryFn: async () => {
-      const res = await fetch(
-        "https://learning-server-site-subrotadey540-gmailcom.vercel.app/courses"
-      );
+      const res = await fetch("http://localhost:5000/courses");
       const data = await res.json();
       return data;
     },

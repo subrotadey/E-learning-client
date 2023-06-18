@@ -17,7 +17,9 @@ const DisplayError = () => {
   return (
     <div className="align-center flex h-screen justify-center text-center">
       <div>
+        <p className="text-red-500 text-6xl uppercase mb-16">Refresh</p>
         <p className="text-red-500">Something Went Wrong!</p>
+        <p className="text-green-500">Refresh this page. If you Face Same problem. SignOut And Login again.</p>
         <p className="text-red-400">{error.statusText || error.message}</p>
         <h4 className="text-3xl">
           {" "}

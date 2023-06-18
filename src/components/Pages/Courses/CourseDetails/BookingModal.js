@@ -27,16 +27,13 @@ const BookingModal = ({ selectedDate, heading, price }) => {
     };
     console.log(booking);
 
-    fetch(
-      "https://learning-server-site-subrotadey540-gmailcom.vercel.app/bookings",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(booking),
-      }
-    )
+    fetch("http://localhost:5000/bookings", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
