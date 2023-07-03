@@ -1,6 +1,6 @@
 import React from "react";
 // import Particle from "../Shared/Particle/Particle";
-import image from "../../assets/images/contact_us3.gif";
+import image from "../../assets/images/contact_us.gif";
 
 const Contact = () => {
   return (
