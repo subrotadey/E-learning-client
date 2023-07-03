@@ -1,10 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal";
 import Loading from "../../Shared/Loading/Loading";
 import ManageCourse from "./ManageCourse";
+// import useCourses from "../../../Hooks/useCourses";
+import { useLoaderData } from "react-router-dom";
 // import UpdateCourseModal from "./UpdateCourseModal";
 
 const ManageCourses = () => {
@@ -14,26 +16,8 @@ const ManageCourses = () => {
   const closeModal = () => {
     setDeletingCourse(null);
   };
-  const {
-    data: courses,
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["courses"],
-    queryFn: async () => {
-      try {
-        const res = await fetch("http://localhost:5000/courses", {
-          headers: {
-            authorization: `bearer ${localStorage.getItem("accessToken")}`,
-          },
-        });
-        const data = await res.json();
-        return data;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  });
+  // const [{courses, refetch, isLoading}] = useCourses();
+  const {courses, refetch, isLoading} = useLoaderData();
 
   const handleDeleteCourse = (course) => {
     fetch(`http://localhost:5000/courses/${course._id}`, {

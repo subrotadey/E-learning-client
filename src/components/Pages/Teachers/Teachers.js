@@ -5,6 +5,8 @@ import Teacher from "./Teacher";
 
 const Teachers = () => {
   const teachers = useLoaderData();
+
+  console.log(teachers);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -17,8 +19,8 @@ const Teachers = () => {
       {loading ? (
         <Loading></Loading>
       ) : (
-        <div className="pt-12">
-          <h1>This is courses</h1>
+        <div className="pt-12 my-12">
+          <p className="text-center text-5xl uppercase mb-6 textarea-ghost">Our Valuable Teacher</p>
           <div className="mx-12 grid grid-cols-1 gap-4 lg:grid-cols-4">
             {teachers?.map((teacher) => (
               <Teacher key={teacher._id} teacher={teacher}></Teacher>

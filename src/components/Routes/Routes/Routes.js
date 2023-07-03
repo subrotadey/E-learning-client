@@ -23,12 +23,14 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ManageCourses from "../../Pages/Dashboard/ManageCourses/ManageCourses";
 import Payment from "../../Pages/Dashboard/Payment/Payment";
 import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
+import BookDetail from "../../Pages/Books/BookDetail";
+import ForgetPassword from "../../Pages/Login/ForgetPassword";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    errorElement: <DisplayError></DisplayError>,
+    errorElement: <DisplayError></DisplayError>,  
     children: [
       {
         path: "/",
@@ -70,21 +72,55 @@ const router = createBrowserRouter([
       },
       {
         path: "/courses",
-        loader: async () => {
-          return fetch("http://localhost:5000/courses");
-        },
         element: <Courses></Courses>,
       },
+      {
+        path: "/forgetpassword",
+        element: <ForgetPassword></ForgetPassword>,
+      },
+
+      
+      // loader: async () => {
+      //   return fetch("http://localhost:5000/courses");
+      // },
+      // {
+      //   path: "/",
+      //   loader: async () => {
+      //     return fetch("http://localhost:5000/courses");
+      //   },
+      //   element: <Home></Home>,
+      // },
+      // {
+      //   path: "/",
+      //   loader: async () => {
+      //     return fetch("http://localhost:5000/courses");
+      //   },
+      //   element: <HomeCourses></HomeCourses>,
+      // },
       {
         path: "/course/:courseId",
         loader: async ({ params }) => {
           return fetch(`http://localhost:5000/courses/${params.courseId}`);
         },
-        element: <CourseDetails></CourseDetails>,
+        element: (
+          <PrivateRoute>
+            <CourseDetails></CourseDetails>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/books",
+        loader: async () => {
+          return fetch("http://localhost:5000/books");
+        },
         element: <Books></Books>,
+      },
+      {
+        path: "/books/:bookId",
+        loader: async ({ params }) => {
+          return fetch(`http://localhost:5000/books/${params.bookId}`);
+        },
+        element: <BookDetail></BookDetail>,
       },
     ],
   },
@@ -119,6 +155,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/managecourses",
+        loader: async () => {
+          return fetch("http://localhost:5000/courses");
+        },
         element: (
           <AdminRoute>
             <ManageCourses></ManageCourses>

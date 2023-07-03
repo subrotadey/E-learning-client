@@ -7,6 +7,8 @@ import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import useToken from "../../Hooks/useToken";
+import signup from "../../assets/images/sign-up.gif";
+
 
 const SignUp = () => {
   const {
@@ -29,7 +31,18 @@ const SignUp = () => {
     navigate(from, { replace: true });
   }
 
-  //
+  // show password in field
+  const [showPassword, setShowPassword] = useState(false);
+  const [setPassword] = useState("");
+  
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleChange = (e) => {
+    setPassword(e.target.value);
+  };
 
   const handleSignUp = (data, e) => {
     // e.preventDefault();
@@ -83,8 +96,11 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <div className="flex h-screen items-center justify-center">
+    <div className="flex h-screen items-center justify-center text-center font-mono ">
+      <div>
+        <img src={signup} alt="" />
+      </div>
+      <div className="flex items-center justify-center rounded-lg bg-zinc-800 w-3/12">
         <div className="w-96 p-7">
           <h2 className="text-center text-xl">Sign Up</h2>
           <form onSubmit={handleSubmit(handleSignUp)}>
@@ -95,6 +111,7 @@ const SignUp = () => {
               </label>
               <input
                 type="text"
+                placeholder="Your name"
                 {...register("name", {
                   required: "Name is Required",
                 })}
@@ -111,6 +128,7 @@ const SignUp = () => {
               </label>
               <input
                 type="email"
+                placeholder="Your Email"
                 {...register("email", {
                   required: true,
                 })}
@@ -126,7 +144,10 @@ const SignUp = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
+                onChange={handleChange}
+                placeholder="Password"
+                className="input-bordered input w-full max-w-xs"
                 {...register("password", {
                   required: "Password is required",
                   minLength: {
@@ -139,8 +160,17 @@ const SignUp = () => {
                       "Password must have uppercase, number and special characters",
                   },
                 })}
-                className="input-bordered input w-full max-w-xs"
               />
+              <span
+                className="flex w-0 bg-lime-800"
+                onClick={handleTogglePassword}
+              >
+                <input
+                  type="checkbox"
+                  className="checkbox-accent checkbox my-2"
+                />
+              </span>
+
               {errors.password && (
                 <p className="text-red-500">{errors.password.message}</p>
               )}
@@ -167,6 +197,7 @@ const SignUp = () => {
           </button>
         </div>
       </div>
+      
     </div>
   );
 };
