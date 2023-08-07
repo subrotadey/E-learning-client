@@ -9,7 +9,6 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 import useToken from "../../Hooks/useToken";
 import signup from "../../assets/images/sign-up.gif";
 
-
 const SignUp = () => {
   const {
     register,
@@ -34,7 +33,6 @@ const SignUp = () => {
   // show password in field
   const [showPassword, setShowPassword] = useState(false);
   const [setPassword] = useState("");
-  
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -81,7 +79,7 @@ const SignUp = () => {
 
   const saveUser = (name, email) => {
     const user = { name, email };
-    fetch("http://localhost:5000/users", {
+    fetch("https://e-learning-server-hazel.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -100,7 +98,7 @@ const SignUp = () => {
       <div>
         <img src={signup} alt="" />
       </div>
-      <div className="flex items-center justify-center rounded-lg bg-zinc-800 w-3/12">
+      <div className="flex w-3/12 items-center justify-center rounded-lg bg-zinc-800">
         <div className="w-96 p-7">
           <h2 className="text-center text-xl">Sign Up</h2>
           <form onSubmit={handleSubmit(handleSignUp)}>
@@ -197,7 +195,6 @@ const SignUp = () => {
           </button>
         </div>
       </div>
-      
     </div>
   );
 };

@@ -34,7 +34,7 @@ const AddTeacher = () => {
           };
 
           // save teacher information to the server
-          fetch("http://localhost:5000/teachers", {
+          fetch("https://e-learning-server-hazel.vercel.app/teachers", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -152,7 +152,9 @@ const AddTeacher = () => {
               {" "}
               <span className="label-text">Photo</span>
             </label>
-            <input type="file" {...register("image", { required: "Photo is Required", })}
+            <input
+              type="file"
+              {...register("image", { required: "Photo is Required" })}
               className="file-input-bordered file-input-accent file-input w-full max-w-xs"
             />
             {/* <input type="file" {...register("image", { required: "Photo is Required", })} className="file-input-bordered file-input-accent file-input w-full max-w-xs"/> */}

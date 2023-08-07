@@ -36,7 +36,7 @@ const AddCourse = () => {
           };
 
           // save teacher information to the server
-          fetch("http://localhost:5000/courses", {
+          fetch("https://e-learning-server-hazel.vercel.app/courses", {
             method: "POST",
             headers: {
               "content-type": "application/json",

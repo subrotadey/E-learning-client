@@ -12,15 +12,15 @@ import { useLoaderData } from "react-router-dom";
 const ManageCourses = () => {
   const [deletingCourse, setDeletingCourse] = useState(null);
   // const [updateCourse, setUpdateCourse] = useState(null);
-  const [ setUpdateCourse] = useState(null);
+  const [setUpdateCourse] = useState(null);
   const closeModal = () => {
     setDeletingCourse(null);
   };
   // const [{courses, refetch, isLoading}] = useCourses();
-  const {courses, refetch, isLoading} = useLoaderData();
+  const { courses, refetch, isLoading } = useLoaderData();
 
   const handleDeleteCourse = (course) => {
-    fetch(`http://localhost:5000/courses/${course._id}`, {
+    fetch(`https://e-learning-server-hazel.vercel.app/courses/${course._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

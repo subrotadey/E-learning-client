@@ -42,7 +42,7 @@ const Login = () => {
   };
 
   const handleLogin = (data, e) => {
-    console.log(data);
+    // console.log(data);
     // e.preventDefault();
     setLoginError("");
     signIn(data.email, data.password)

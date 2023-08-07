@@ -24,7 +24,7 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
   const navigate = useNavigate();
 
   // useEffect(() => {
-  //   const url = `http://localhost:5000/courses/${id}`;
+  //   const url = `https://e-learning-server-hazel.vercel.app/courses/${id}`;
   //   fetch(url)
   //     .then((res) => res.json())
   //     .then((data) => setUpdateCourse(data));
@@ -59,7 +59,7 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
           console.log(updateCourseInfo);
 
           // updated teacher information to the server
-          const url = `http://localhost:5000/courses/${_id}`;
+          const url = `https://e-learning-server-hazel.vercel.app/courses/${_id}`;
           fetch(url, {
             method: "PUT",
             headers: {
@@ -204,28 +204,28 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
                   )}
                 </div>
                 <div className="form-control w-full max-w-xs">
-            <label className="label">
-              {" "}
-              <span className="label-text">Photo</span>
-            </label>
-            <input
-              type="file"
-              {...register("image", {
-                required: "Photo is Required",
-              })}
-              className="file-input-bordered file-input-accent file-input w-full max-w-xs"
-            />
-            {/* <input
+                  <label className="label">
+                    {" "}
+                    <span className="label-text">Photo</span>
+                  </label>
+                  <input
+                    type="file"
+                    {...register("image", {
+                      required: "Photo is Required",
+                    })}
+                    className="file-input-bordered file-input-accent file-input w-full max-w-xs"
+                  />
+                  {/* <input
               type="file"
               {...register("image", {
                 required: "Photo is Required",
               })}
               className="input-bordered input w-full max-w-xs"
             /> */}
-            {errors.image && (
-              <p className="text-red-500">{errors.image.message}</p>
-            )}
-          </div>
+                  {errors.image && (
+                    <p className="text-red-500">{errors.image.message}</p>
+                  )}
+                </div>
                 <input
                   className="btn-accent btn mt-4 w-full"
                   value="Update Course"

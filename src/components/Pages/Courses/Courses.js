@@ -42,7 +42,6 @@
 //           </div>
 //           <div className="divider"></div>
 
-
 //           <div className="mx-12 grid grid-cols-1 gap-4 lg:grid-cols-2">
 //             {courses
 //               .filter((course) => course.heading.toLowerCase().includes(query))
@@ -58,7 +57,6 @@
 
 // export default Courses;
 
-
 import React, { useEffect, useState } from "react";
 // import { useLoaderData } from "react-router-dom";
 import Loading from "../Shared/Loading/Loading";
@@ -70,13 +68,13 @@ const Courses = () => {
   // const { courses, count } = useLoaderData();
   const [query, setQuery] = useState("");
 
-  const [ courses, setCourses ] = useState([]);
+  const [courses, setCourses] = useState([]);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(10);
 
   useEffect(() => {
-    const url = `http://localhost:5000/courses?page=${page}&size=${size}`;
+    const url = `https://e-learning-server-hazel.vercel.app/courses?page=${page}&size=${size}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -132,7 +130,7 @@ const Courses = () => {
           </div>
           <div className="pagination flex text-center">
             <p>
-              currently selected page {page+1} and size {size}
+              currently selected page {page + 1} and size {size}
             </p>
             {[...Array(pages).keys()].map((number) => (
               <div className="">
@@ -142,7 +140,7 @@ const Courses = () => {
                     key={number}
                     onClick={() => setPage(number)}
                   >
-                    {number+1}
+                    {number + 1}
                   </button>
                 </div>
               </div>
@@ -150,7 +148,9 @@ const Courses = () => {
           </div>
           <select onChange={(event) => setSize(event.target.value)}>
             <option value="5">5</option>
-            <option value="10" defaultValue>10</option>
+            <option value="10" defaultValue>
+              10
+            </option>
             <option value="15">15</option>
             <option value="20">20</option>
           </select>
@@ -161,4 +161,3 @@ const Courses = () => {
 };
 
 export default Courses;
-
