@@ -196,9 +196,9 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment/:id",
         element: (
-          <AdminRoute>
+          // <AdminRoute>
             <Payment></Payment>
-          </AdminRoute>
+          // </AdminRoute>
         ),
         loader: ({ params }) =>
           fetch(

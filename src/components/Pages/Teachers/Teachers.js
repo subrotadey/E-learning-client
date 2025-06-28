@@ -12,7 +12,7 @@ const Teachers = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 300);
+    }, 2000);
   }, []);
   return (
     <div className="flex items-center justify-center">

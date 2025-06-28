@@ -117,3 +117,88 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+
+// import React, { useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
+
+// const Navbar = () => {
+//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+//   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+//   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+//   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
+//   useEffect(() => {
+//     // Add padding to body to prevent content from going under the navbar
+//     document.body.style.paddingTop = "64px"; // Adjust this value if needed
+//     return () => {
+//       document.body.style.paddingTop = "0";
+//     };
+//   }, []);
+
+//   return (
+//     <nav className="fixed top-0 left-0 right-0 z-50 w-full shadow-md bg-[#326414] p-3 text-white h-16 flex items-center">
+//       <div className="container mx-auto flex items-center justify-between" style={{ maxWidth: "1400px" }}>
+//         {/* Left - Logo & Slogan */}
+//         <div className="flex items-center">
+//           <h1 className="text-xl font-bold">ZeroBiteWaste</h1>
+//           <p className="ml-2 text-[#F9E74B] text-sm">Every bite counts!</p>
+//         </div>
+
+//         {/* Center - Desktop Navigation */}
+//         <div className="hidden md:flex space-x-8 flex-grow justify-center">
+//           <Link to="/" className="hover:text-yellow-300 transition">Home</Link>
+//           <Link to="/donate" className="hover:text-yellow-300 transition">Donate</Link>
+//           <Link to="/volunteer" className="hover:text-yellow-300 transition">Volunteer</Link>
+//           <Link to="/about" className="hover:text-yellow-300 transition">About</Link>
+//           <Link to="/contact" className="hover:text-yellow-300 transition">Contact</Link>
+//         </div>
+
+//         {/* Right - Dropdown & Hamburger Menu */}
+//         <div className="flex items-center space-x-6">
+//           {/* Desktop Dropdown Button */}
+//           <div className="hidden md:block relative">
+//             <button onClick={toggleDropdown} className="text-2xl hover:text-yellow-300 transition">
+//               ☰
+//             </button>
+//             {isDropdownOpen && (
+//               <div className="absolute right-0 mt-2 w-52 bg-white text-green-900 rounded-md shadow-lg z-50">
+//                 <ul className="py-2 text-sm">
+//                   <li><Link to="/top-contributor" className="block px-4 py-2 hover:bg-yellow-300">Top Contributors</Link></li>
+//                   <li><Link to="/volunteer-family" className="block px-4 py-2 hover:bg-yellow-300">Volunteer Family</Link></li>
+//                   <li><Link to="/charity-activities" className="block px-4 py-2 hover:bg-yellow-300">Charity Activities</Link></li>
+//                 </ul>
+//               </div>
+//             )}
+//           </div>
+
+//           {/* Mobile Hamburger Menu */}
+//           <div className="md:hidden">
+//             <button onClick={toggleMobileMenu} className="text-3xl focus:outline-none">
+//               {isMobileMenuOpen ? "✖" : "☰"}
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Mobile Dropdown Menu */}
+//       <div className={`md:hidden bg-[#326414] text-white transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "max-h-screen py-4 opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
+//         <div className="flex flex-col space-y-4 text-center">
+//           <Link to="/" className="hover:text-yellow-300" onClick={toggleMobileMenu}>Home</Link>
+//           <Link to="/donate" className="hover:text-yellow-300" onClick={toggleMobileMenu}>Donate</Link>
+//           <Link to="/volunteer" className="hover:text-yellow-300" onClick={toggleMobileMenu}>Volunteer</Link>
+//           <Link to="/contact" className="hover:text-yellow-300" onClick={toggleMobileMenu}>Contact</Link>
+//           <Link to="/signin" className="hover:text-yellow-300" onClick={toggleMobileMenu}>Sign In</Link>
+//           <Link to="/top-contributor" className="hover:text-yellow-300" onClick={toggleMobileMenu}>Top Contributor</Link>
+//           <Link to="/volunteer-family" className="hover:text-yellow-300" onClick={toggleMobileMenu}>Volunteer Family</Link>
+//           <Link to="/charity-activities" className="hover:text-yellow-300" onClick={toggleMobileMenu}>Charity Activities</Link>
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;

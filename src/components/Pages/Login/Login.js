@@ -13,11 +13,14 @@ const Login = () => {
     register,
     formState: { errors },
     handleSubmit,
+    setValue
   } = useForm();
   const { signIn, providerLogin } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [loginUserEmail, setLoginUserEmail] = useState("");
   const [token] = useToken(loginUserEmail);
+
+  const [email, setEmail] = useState("");
 
   // const location = useLocation();
   const navigate = useNavigate();
@@ -66,6 +69,21 @@ const Login = () => {
       .catch((error) => console.error(error));
   };
 
+  const fillDemoUser = () => {
+  setValue("email", "user@example.com");
+  setValue("password", "User@123");
+  setEmail("user@example.com");
+  setPass("User@123");
+};
+
+  const fillDemoAdmin = () => {
+  setValue("email", "subrotadey540@gmail.com");
+  setValue("password", "admin123");
+  setEmail("subrotadey540@gmail.com");
+  setPass("Admin@123");
+};
+
+
   return (
     <>
       <div className="flex h-screen items-center justify-evenly text-center font-mono ">
@@ -76,6 +94,22 @@ const Login = () => {
           <div className="w-96 border-accent p-7">
             <form onSubmit={handleSubmit(handleLogin)}>
               <h2 className="text-center text-xl">Login</h2>
+              <div className="flex justify-between mb-4">
+                <button
+                  type="button"
+                  onClick={fillDemoUser}
+                  className="btn btn-sm btn-primary"
+                >
+                  Demo User
+                </button>
+                <button
+                  type="button"
+                  onClick={fillDemoAdmin}
+                  className="btn btn-sm btn-secondary"
+                >
+                  Demo Admin
+                </button>
+              </div>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -84,6 +118,8 @@ const Login = () => {
                   {...register("email", {
                     required: "Email Address is required",
                   })}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   aria-invalid={errors.email ? "true" : "false"}
                   type="email"
                   className="input-bordered input w-full max-w-xs"
