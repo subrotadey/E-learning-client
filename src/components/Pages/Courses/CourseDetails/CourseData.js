@@ -8,7 +8,6 @@ import BookingModal from "./BookingModal";
 
 const CourseData = ({ selectedDate }) => {
   const courses = useLoaderData();
-  console.log(courses);
 
   const { heading, price, level, quiz, students, weeks } = courses;
 

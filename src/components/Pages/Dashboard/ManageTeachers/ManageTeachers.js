@@ -20,7 +20,7 @@ const ManageTeachers = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          "https://e-learning-server-hazel.vercel.app/teachers",
+          "http://localhost:5000/teachers",
           {
             headers: {
               authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -37,7 +37,7 @@ const ManageTeachers = () => {
 
   const handleDeleteTeacher = (teacher) => {
     fetch(
-      `https://e-learning-server-hazel.vercel.app/teachers/${teacher._id}`,
+      `http://localhost:5000/teachers/${teacher._id}`,
       {
         method: "DELETE",
         headers: {

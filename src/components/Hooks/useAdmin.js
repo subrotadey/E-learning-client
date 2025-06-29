@@ -5,7 +5,7 @@ const useAdmin = (email) => {
   const [isAdminLoading, setIsAdminLoading] = useState(false);
   useEffect(() => {
     if (email) {
-      fetch(`https://e-learning-server-hazel.vercel.app/users/admin/${email}`)
+      fetch(`http://localhost:5000/users/admin/${email}`)
         .then((res) => res.json())
         .then((data) => {
           // console.log(data);

@@ -24,7 +24,7 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
   const navigate = useNavigate();
 
   // useEffect(() => {
-  //   const url = `https://e-learning-server-hazel.vercel.app/courses/${id}`;
+  //   const url = `http://localhost:5000/courses/${id}`;
   //   fetch(url)
   //     .then((res) => res.json())
   //     .then((data) => setUpdateCourse(data));
@@ -59,7 +59,7 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
           console.log(updateCourseInfo);
 
           // updated teacher information to the server
-          const url = `https://e-learning-server-hazel.vercel.app/courses/${_id}`;
+          const url = `http://localhost:5000/courses/${_id}`;
           fetch(url, {
             method: "PUT",
             headers: {

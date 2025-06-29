@@ -6,7 +6,7 @@ const HomeCourses = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    const url = `https://e-learning-server-hazel.vercel.app/courses`;
+    const url = `http://localhost:5000/courses`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

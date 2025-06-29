@@ -5,7 +5,7 @@ const useCourses = () => {
     queryKey: ["courses"],
     queryFn: async () => {
       const res = await fetch(
-        "https://e-learning-server-hazel.vercel.app/courses"
+        "http://localhost:5000/courses"
       );
       const data = await res.json();
       return data;

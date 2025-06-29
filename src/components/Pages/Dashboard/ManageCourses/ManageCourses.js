@@ -20,7 +20,7 @@ const ManageCourses = () => {
   const { courses, refetch, isLoading } = useLoaderData();
 
   const handleDeleteCourse = (course) => {
-    fetch(`https://e-learning-server-hazel.vercel.app/courses/${course._id}`, {
+    fetch(`http://localhost:5000/courses/${course._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

@@ -25,6 +25,7 @@ import Payment from "../../Pages/Dashboard/Payment/Payment";
 import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 import BookDetail from "../../Pages/Books/BookDetail";
 import ForgetPassword from "../../Pages/Login/ForgetPassword";
+import CourseReviews from "../../Pages/Courses/CourseReviews/CourseReviews";
 
 const router = createBrowserRouter([
   {
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
       {
         path: "/teachers",
         loader: async () => {
-          return fetch("https://e-learning-server-hazel.vercel.app/teachers");
+          return fetch("http://localhost:5000/teachers");
         },
         element: <Teachers></Teachers>,
       },
@@ -67,7 +68,7 @@ const router = createBrowserRouter([
         path: "/teachers/:teacherId",
         loader: async ({ params }) => {
           return fetch(
-            `https://e-learning-server-hazel.vercel.app/teachers/${params.teacherId}`
+            `http://localhost:5000/teachers/${params.teacherId}`
           );
         },
         element: <TeacherDetails></TeacherDetails>,
@@ -82,19 +83,19 @@ const router = createBrowserRouter([
       },
 
       // loader: async () => {
-      //   return fetch("https://e-learning-server-hazel.vercel.app/courses");
+      //   return fetch("http://localhost:5000/courses");
       // },
       // {
       //   path: "/",
       //   loader: async () => {
-      //     return fetch("https://e-learning-server-hazel.vercel.app/courses");
+      //     return fetch("http://localhost:5000/courses");
       //   },
       //   element: <Home></Home>,
       // },
       // {
       //   path: "/",
       //   loader: async () => {
-      //     return fetch("https://e-learning-server-hazel.vercel.app/courses");
+      //     return fetch("http://localhost:5000/courses");
       //   },
       //   element: <HomeCourses></HomeCourses>,
       // },
@@ -102,7 +103,7 @@ const router = createBrowserRouter([
         path: "/course/:courseId",
         loader: async ({ params }) => {
           return fetch(
-            `https://e-learning-server-hazel.vercel.app/courses/${params.courseId}`
+            `http://localhost:5000/courses/${params.courseId}`
           );
         },
         element: (
@@ -112,9 +113,17 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/reviews/:courseId",
+        element: <CourseReviews></CourseReviews>,
+      },
+      // {
+      //   path: "/average-rating/:courseId",
+      //   element: <></>,
+      // },
+      {
         path: "/books",
         loader: async () => {
-          return fetch("https://e-learning-server-hazel.vercel.app/books");
+          return fetch("http://localhost:5000/books");
         },
         element: <Books></Books>,
       },
@@ -122,7 +131,7 @@ const router = createBrowserRouter([
         path: "/books/:bookId",
         loader: async ({ params }) => {
           return fetch(
-            `https://e-learning-server-hazel.vercel.app/books/${params.bookId}`
+            `http://localhost:5000/books/${params.bookId}`
           );
         },
         element: <BookDetail></BookDetail>,
@@ -161,7 +170,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/managecourses",
         loader: async () => {
-          return fetch("https://e-learning-server-hazel.vercel.app/courses");
+          return fetch("http://localhost:5000/courses");
         },
         element: (
           <AdminRoute>
@@ -202,7 +211,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://e-learning-server-hazel.vercel.app/bookings/${params.id}`
+            `http://localhost:5000/bookings/${params.id}`
           ),
       },
     ],

@@ -6,7 +6,6 @@ import { AuthContext } from "../../../../contexts/AuthProvider";
 const BookingModal = ({ selectedDate, heading, price }) => {
   const date = format(selectedDate, "PP");
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   const handleBooking = (event) => {
     event.preventDefault();
@@ -25,9 +24,8 @@ const BookingModal = ({ selectedDate, heading, price }) => {
       price: parseInt(price),
       phone,
     };
-    console.log(booking);
 
-    fetch("https://e-learning-server-hazel.vercel.app/bookings", {
+    fetch("http://localhost:5000/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -36,7 +34,6 @@ const BookingModal = ({ selectedDate, heading, price }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("Booking Confirmed");
         } else {

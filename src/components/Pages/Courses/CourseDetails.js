@@ -1,19 +1,16 @@
-import React, { useState } from "react";
-// import { useLoaderData } from "react-router-dom";
-
+import { useState } from "react";
 import CourseBanner from "./CourseDetails/CourseBanner";
 import CourseData from "./CourseDetails/CourseData";
+import CourseReviews from "./CourseReviews/CourseReviews";
 
 const CourseDetails = () => {
-  // const course = useLoaderData();
-  // console.log(course);
-  // const { img, heading, price, level, quiz, students, weeks } = course;
   const [selectedDate] = useState(new Date());
 
   return (
     <div className="lg:p-20">
       <CourseBanner selectedDate={selectedDate}></CourseBanner>
       <CourseData selectedDate={selectedDate}></CourseData>
+      <CourseReviews></CourseReviews>
     </div>
   );
 };
