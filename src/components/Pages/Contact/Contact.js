@@ -1,5 +1,4 @@
 import React from "react";
-// import Particle from "../Shared/Particle/Particle";
 import image from "../../assets/images/contact_us.gif";
 
 const Contact = () => {

@@ -15,7 +15,7 @@ const CheckOutForm = ({ booking }) => {
   useEffect(() => {
     console.log(price);
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://onlineeulogy.onrender.com/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -79,7 +79,7 @@ const CheckOutForm = ({ booking }) => {
         email,
         bookingId: _id,
       };
-      fetch("http://localhost:5000/payments", {
+      fetch("https://onlineeulogy.onrender.com/payments", {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -26,6 +26,10 @@ import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 import BookDetail from "../../Pages/Books/BookDetail";
 import ForgetPassword from "../../Pages/Login/ForgetPassword";
 import CourseReviews from "../../Pages/Courses/CourseReviews/CourseReviews";
+import BecomeInstructor from "../../Pages/Dashboard/BecomeInstructor/BecomeInstructor";
+import InstructorRequest from "../../Pages/Dashboard/InstructorRequests/InstructorRequests";
+import TeacherCourse from "../../Pages/Dashboard/TeacherCourse/TeacherCourse";
+import Profile from "../../Pages/Dashboard/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -60,7 +64,7 @@ const router = createBrowserRouter([
       {
         path: "/teachers",
         loader: async () => {
-          return fetch("http://localhost:5000/teachers");
+          return fetch("https://onlineeulogy.onrender.com/teachers");
         },
         element: <Teachers></Teachers>,
       },
@@ -68,7 +72,7 @@ const router = createBrowserRouter([
         path: "/teachers/:teacherId",
         loader: async ({ params }) => {
           return fetch(
-            `http://localhost:5000/teachers/${params.teacherId}`
+            `https://onlineeulogy.onrender.com/teachers/${params.teacherId}`
           );
         },
         element: <TeacherDetails></TeacherDetails>,
@@ -83,19 +87,19 @@ const router = createBrowserRouter([
       },
 
       // loader: async () => {
-      //   return fetch("http://localhost:5000/courses");
+      //   return fetch("https://onlineeulogy.onrender.com/courses");
       // },
       // {
       //   path: "/",
       //   loader: async () => {
-      //     return fetch("http://localhost:5000/courses");
+      //     return fetch("https://onlineeulogy.onrender.com/courses");
       //   },
       //   element: <Home></Home>,
       // },
       // {
       //   path: "/",
       //   loader: async () => {
-      //     return fetch("http://localhost:5000/courses");
+      //     return fetch("https://onlineeulogy.onrender.com/courses");
       //   },
       //   element: <HomeCourses></HomeCourses>,
       // },
@@ -103,7 +107,7 @@ const router = createBrowserRouter([
         path: "/course/:courseId",
         loader: async ({ params }) => {
           return fetch(
-            `http://localhost:5000/courses/${params.courseId}`
+            `https://onlineeulogy.onrender.com/courses/${params.courseId}`
           );
         },
         element: (
@@ -123,7 +127,7 @@ const router = createBrowserRouter([
       {
         path: "/books",
         loader: async () => {
-          return fetch("http://localhost:5000/books");
+          return fetch("https://onlineeulogy.onrender.com/books");
         },
         element: <Books></Books>,
       },
@@ -131,7 +135,7 @@ const router = createBrowserRouter([
         path: "/books/:bookId",
         loader: async ({ params }) => {
           return fetch(
-            `http://localhost:5000/books/${params.bookId}`
+            `https://onlineeulogy.onrender.com/books/${params.bookId}`
           );
         },
         element: <BookDetail></BookDetail>,
@@ -149,7 +153,23 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
+        element: <Profile></Profile>,
+      },
+      {
+        path: "/dashboard/my-booking",
         element: <MyBooking></MyBooking>,
+      },
+      {
+        path: "/dashboard/becomeinstructor",
+        element: <BecomeInstructor></BecomeInstructor>
+      },
+      {
+        path: "/dashboard/instructor-requests",
+        element: <InstructorRequest></InstructorRequest>
+      },
+      {
+        path: "/dashboard/teacher-course",
+        element: <TeacherCourse></TeacherCourse>
       },
       {
         path: "/dashboard/allusers",
@@ -170,7 +190,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/managecourses",
         loader: async () => {
-          return fetch("http://localhost:5000/courses");
+          return fetch("https://onlineeulogy.onrender.com/courses");
         },
         element: (
           <AdminRoute>
@@ -206,12 +226,12 @@ const router = createBrowserRouter([
         path: "/dashboard/payment/:id",
         element: (
           // <AdminRoute>
-            <Payment></Payment>
+          <Payment></Payment>
           // </AdminRoute>
         ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/bookings/${params.id}`
+            `https://onlineeulogy.onrender.com/bookings/${params.id}`
           ),
       },
     ],

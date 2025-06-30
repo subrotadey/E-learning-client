@@ -25,7 +25,7 @@ const BookingModal = ({ selectedDate, heading, price }) => {
       phone,
     };
 
-    fetch("http://localhost:5000/bookings", {
+    fetch("https://onlineeulogy.onrender.com/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",

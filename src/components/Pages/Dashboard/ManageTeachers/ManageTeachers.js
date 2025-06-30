@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal";
@@ -20,7 +19,7 @@ const ManageTeachers = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/teachers",
+          "https://onlineeulogy.onrender.com/teachers",
           {
             headers: {
               authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -37,7 +36,7 @@ const ManageTeachers = () => {
 
   const handleDeleteTeacher = (teacher) => {
     fetch(
-      `http://localhost:5000/teachers/${teacher._id}`,
+      `https://onlineeulogy.onrender.com/teachers/${teacher._id}`,
       {
         method: "DELETE",
         headers: {

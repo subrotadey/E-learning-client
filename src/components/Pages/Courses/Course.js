@@ -9,7 +9,7 @@ const Course = ({ course }) => {
   const [average, setAverage] = useState(0);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/average/${_id}`)
+    fetch(`https://onlineeulogy.onrender.com/reviews/average/${_id}`)
       .then(res => res.json())
       .then(data => {
         setAverage(data?.averageRating || 0);

@@ -56,11 +56,17 @@ const Login = () => {
     setValue("email", "subrotadey540@gmail.com");
     setValue("password", "Admin@123");
   };
+  
+  const fillDemoInstructor = () => {
+    setValue("email", "instructor@example.com");
+    setValue("password", "Instructor@123");
+  };
 
   const fillDemoUser = () => {
     setValue("email", "user@example.com");
     setValue("password", "User@123");
   };
+
 
   return (
     <>
@@ -72,20 +78,30 @@ const Login = () => {
           <div className="w-96 border-accent p-7">
             <form onSubmit={handleSubmit(handleLogin)}>
               <h2 className="text-center text-xl">Login</h2>
+              <p className="my-2 text-sm">Click the button for role wise login</p>
               <div className="flex justify-between mb-4">
                 <button
                   type="button"
                   onClick={fillDemoAdmin}
                   className="btn btn-sm btn-secondary"
                 >
-                  Demo Admin
+                  Admin
                 </button>
+
+                <button
+                  type="button"
+                  onClick={fillDemoInstructor}
+                  className="btn btn-sm btn-accent"
+                >
+                  Instructor
+                </button>
+
                 <button
                   type="button"
                   onClick={fillDemoUser}
                   className="btn btn-sm btn-primary"
                 >
-                  Demo User
+                  User
                 </button>
               </div>
               <div className="form-control w-full max-w-xs">

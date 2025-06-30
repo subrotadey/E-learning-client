@@ -7,7 +7,6 @@ const ManageTeacher = ({ teacher, i, setDeletingTeacher }) => {
   const closeModal = () => {
     setUpdateTeacher(null);
   };
-  // console.log(teacher._id);
   return (
     <>
       <tr className="hover">

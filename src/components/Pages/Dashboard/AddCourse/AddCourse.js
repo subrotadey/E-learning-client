@@ -35,8 +35,7 @@ const AddCourse = () => {
             student: data.student,
           };
 
-          // save teacher information to the server
-          fetch("http://localhost:5000/courses", {
+          fetch("https://onlineeulogy.onrender.com/courses", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -47,7 +46,6 @@ const AddCourse = () => {
             .then((res) => res.json())
             .then((result) => {
               if (result.acknowledged) {
-                console.log(result);
                 toast.success(`${data.heading} is successfully added`);
                 navigate("/dashboard/managecourses");
               } else {
@@ -57,153 +55,118 @@ const AddCourse = () => {
         }
       });
   };
+
   return (
-    <div>
-      <h2 className="text-3xl">Add A Course</h2>
-      <div className="w-96 p-7 ">
-        <form onSubmit={handleSubmit(handleAddCourse)}>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              {" "}
-              <span className="label-text">Course Name or Heading</span>
-            </label>
-            <input
-              type="text"
-              {...register("heading", {
-                required: "This Field is Required",
-              })}
-              className="input-bordered input w-full max-w-xs"
-            />
-            {errors.heading && (
-              <p className="text-red-500">{errors.heading.message}</p>
-            )}
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              {" "}
-              <span className="label-text">Price</span>
-            </label>
-            <input
-              type="number"
-              {...register("price", {
-                required: "This Field is Required",
-              })}
-              className="input-bordered input w-full max-w-xs"
-            />
-            {errors.price && (
-              <p className="text-red-500">{errors.price.message}</p>
-            )}
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              {" "}
-              <span className="label-text">Weeks</span>
-            </label>
-            <input
-              type="number"
-              {...register("weeks", {
-                required: "This Field is Required",
-              })}
-              className="input-bordered input w-full max-w-xs"
-            />
-            {errors.weeks && (
-              <p className="text-red-500">{errors.weeks.message}</p>
-            )}
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              {" "}
-              <span className="label-text">Level</span>
-            </label>
-            <input
-              type="text"
-              {...register("level", {
-                required: "This Field is Required",
-              })}
-              className="input-bordered input w-full max-w-xs"
-            />
-            {errors.level && (
-              <p className="text-red-500">{errors.level.message}</p>
-            )}
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              {" "}
-              <span className="label-text">Lesson</span>
-            </label>
-            <input
-              type="number"
-              {...register("lesson", {
-                required: "This Field is Required",
-              })}
-              className="input-bordered input w-full max-w-xs"
-            />
-            {errors.lesson && (
-              <p className="text-red-500">{errors.lesson.message}</p>
-            )}
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              {" "}
-              <span className="label-text">Quiz Number</span>
-            </label>
-            <input
-              type="number"
-              {...register("quiz", {
-                required: "This Field is Required",
-              })}
-              className="input-bordered input w-full max-w-xs"
-            />
-            {errors.quiz && (
-              <p className="text-red-500">{errors.quiz.message}</p>
-            )}
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              {" "}
-              <span className="label-text">Total Student</span>
-            </label>
-            <input
-              type="number"
-              {...register("student", {
-                required: "This Field is Required",
-              })}
-              className="input-bordered input w-full max-w-xs"
-            />
-            {errors.student && (
-              <p className="text-red-500">{errors.student.message}</p>
-            )}
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              {" "}
-              <span className="label-text">Photo</span>
-            </label>
-            <input
-              type="file"
-              {...register("image", {
-                required: "Photo is Required",
-              })}
-              className="file-input-bordered file-input-accent file-input w-full max-w-xs"
-            />
-            {/* <input
-              type="file"
-              {...register("image", {
-                required: "Photo is Required",
-              })}
-              className="input-bordered input w-full max-w-xs"
-            /> */}
-            {errors.image && (
-              <p className="text-red-500">{errors.image.message}</p>
-            )}
-          </div>
+    <div className="px-4 md:px-10 py-8 max-w-7xl mx-auto">
+      <h2 className="text-3xl font-semibold mb-8 text-center">📚 Add A New Course</h2>
+      <form
+        onSubmit={handleSubmit(handleAddCourse)}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
+        {/* Course Name */}
+        <div>
+          <label className="label-text font-medium">Course Name</label>
           <input
-            className="btn-accent btn mt-4 w-full"
-            value="Add Course"
-            type="submit"
+            type="text"
+            {...register("heading", { required: "This Field is Required" })}
+            className="input input-bordered w-full"
+            placeholder="React for Beginners"
           />
-        </form>
-      </div>
+          {errors.heading && <p className="text-red-500 text-sm">{errors.heading.message}</p>}
+        </div>
+
+        {/* Price */}
+        <div>
+          <label className="label-text font-medium">Price (৳)</label>
+          <input
+            type="number"
+            {...register("price", { required: "This Field is Required" })}
+            className="input input-bordered w-full"
+            placeholder="e.g. 999"
+          />
+          {errors.price && <p className="text-red-500 text-sm">{errors.price.message}</p>}
+        </div>
+
+        {/* Weeks */}
+        <div>
+          <label className="label-text font-medium">Duration (Weeks)</label>
+          <input
+            type="number"
+            {...register("weeks", { required: "This Field is Required" })}
+            className="input input-bordered w-full"
+            placeholder="e.g. 6"
+          />
+          {errors.weeks && <p className="text-red-500 text-sm">{errors.weeks.message}</p>}
+        </div>
+
+        {/* Level */}
+        <div>
+          <label className="label-text font-medium">Level</label>
+          <input
+            type="text"
+            {...register("level", { required: "This Field is Required" })}
+            className="input input-bordered w-full"
+            placeholder="Beginner / Intermediate / Advanced"
+          />
+          {errors.level && <p className="text-red-500 text-sm">{errors.level.message}</p>}
+        </div>
+
+        {/* Lessons */}
+        <div>
+          <label className="label-text font-medium">Total Lessons</label>
+          <input
+            type="number"
+            {...register("lesson", { required: "This Field is Required" })}
+            className="input input-bordered w-full"
+            placeholder="e.g. 40"
+          />
+          {errors.lesson && <p className="text-red-500 text-sm">{errors.lesson.message}</p>}
+        </div>
+
+        {/* Quizzes */}
+        <div>
+          <label className="label-text font-medium">Total Quizzes</label>
+          <input
+            type="number"
+            {...register("quiz", { required: "This Field is Required" })}
+            className="input input-bordered w-full"
+            placeholder="e.g. 6"
+          />
+          {errors.quiz && <p className="text-red-500 text-sm">{errors.quiz.message}</p>}
+        </div>
+
+        {/* Students */}
+        <div>
+          <label className="label-text font-medium">Total Students</label>
+          <input
+            type="number"
+            {...register("student", { required: "This Field is Required" })}
+            className="input input-bordered w-full"
+            placeholder="e.g. 1200"
+          />
+          {errors.student && <p className="text-red-500 text-sm">{errors.student.message}</p>}
+        </div>
+
+        {/* Image Upload */}
+        <div>
+          <label className="label-text font-medium">Course Image</label>
+          <input
+            type="file"
+            {...register("image", { required: "Photo is Required" })}
+            className="file-input file-input-bordered w-full"
+          />
+          {errors.image && <p className="text-red-500 text-sm">{errors.image.message}</p>}
+        </div>
+
+        {/* Submit Button - full width on both columns */}
+        <div className="md:col-span-2">
+          <input
+            type="submit"
+            value="Add Course"
+            className="btn btn-accent w-full"
+          />
+        </div>
+      </form>
     </div>
   );
 };

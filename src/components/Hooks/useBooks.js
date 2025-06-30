@@ -5,7 +5,7 @@ const useBooks = () => {
     queryKey: ["books"],
     queryFn: async () => {
       const res = await fetch(
-        "http://localhost:5000/books"
+        "https://onlineeulogy.onrender.com/books"
       );
       const data = await res.json();
       return data;

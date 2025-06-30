@@ -14,7 +14,7 @@ const Courses = () => {
   
 
   useEffect(() => {
-    const url = `http://localhost:5000/courses?page=${page}&size=${size}`;
+    const url = `https://onlineeulogy.onrender.com/courses?page=${page}&size=${size}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

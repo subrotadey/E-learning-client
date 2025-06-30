@@ -22,7 +22,7 @@ const UpdateTeacherModal = ({
   const navigate = useNavigate();
 
   // useEffect(() => {
-  //   const url = `http://localhost:5000/courses/${id}`;
+  //   const url = `https://onlineeulogy.onrender.com/courses/${id}`;
   //   fetch(url)
   //     .then((res) => res.json())
   //     .then((data) => setUpdateCourse(data));
@@ -55,7 +55,7 @@ const UpdateTeacherModal = ({
           console.log(updateTeacherInfo);
 
           // updated teacher information to the server
-          const url = `http://localhost:5000/teachers/${_id}`;
+          const url = `https://onlineeulogy.onrender.com/teachers/${_id}`;
           fetch(url, {
             method: "PUT",
             headers: {
@@ -80,7 +80,7 @@ const UpdateTeacherModal = ({
       });
 
     // //send data to the server
-    // const url = `http://localhost:5000/courses/${_id}`;
+    // const url = `https://onlineeulogy.onrender.com/courses/${_id}`;
     // fetch(url, {
     //   method: "PUT",
     //   headers: {

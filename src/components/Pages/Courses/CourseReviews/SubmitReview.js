@@ -4,7 +4,7 @@ import { AuthContext } from "../../../../contexts/AuthProvider";
 import toast from "react-hot-toast";
 // import { useLoaderData } from "react-router-dom";
 
-const SubmitReview = ({ courseId, setReviews, setAverage }) => {
+const SubmitReview = ({ courseId, setAverage, refetchReviews }) => {
 
     const { user } = useContext(AuthContext);
     const [rating, setRating] = useState(0);
@@ -32,10 +32,9 @@ const SubmitReview = ({ courseId, setReviews, setAverage }) => {
             message,
             date: new Date().toISOString().split("T")[0]
         };
+        // Submit review to server
 
-        // console.log("Review going to backend:", review);
-
-        fetch("http://localhost:5000/reviews", {
+        fetch("https://onlineeulogy.onrender.com/reviews", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -55,10 +54,10 @@ const SubmitReview = ({ courseId, setReviews, setAverage }) => {
                 setMessage("");
 
                 // Show new review instantly
-                setReviews(prev => [...prev, review]);
+                refetchReviews();
 
                 // Update average rating
-                fetch(`http://localhost:5000/reviews/average/${courseId}`)
+                fetch(`https://onlineeulogy.onrender.com/reviews/average/${courseId}`)
                     .then(res => res.json())
                     .then(avg => {
                         setAverage(avg?.averageRating || 0);

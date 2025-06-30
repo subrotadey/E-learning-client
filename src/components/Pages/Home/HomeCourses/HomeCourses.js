@@ -6,7 +6,7 @@ const HomeCourses = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/courses`;
+    const url = `https://onlineeulogy.onrender.com/courses`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
