@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 import logo from "./../../../assets/images/logo.png";
 import { AiOutlineLogin } from "react-icons/ai";
-import { BiLogOutCircle } from "react-icons/bi";
+import avatar from "../../../assets/images/profile.svg"
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   // console.log(user);
   const handleLogOut = () => {
     logOut()
-    .then(()=> {})
-    .catch(err => console.log(err));
+      .then(() => { })
+      .catch(err => console.log(err));
   }
   const menuItems = (
     <>
@@ -51,11 +51,11 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="text-gray navbar fixed z-50 w-full bg-base-100 bg-opacity-20  text-white backdrop-blur-lg backdrop-filter">
+    <div className=" text-gray navbar fixed z-50 w-full bg-base-100 bg-opacity-20  text-white backdrop-blur-lg backdrop-filter">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn-ghost btn lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
           <ul tabIndex="0" className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 text-lg text-white shadow	">
             {menuItems}
@@ -71,47 +71,42 @@ const Navbar = () => {
           {menuItems}
         </ul>
       </div>
-      <div className="dropdown dropdown-end ml-auto">
-        <label tabIndex="0" className="btn-ghost btn-circle avatar btn">
-          <div className="">
-            {user?.uid ? (
-            <BiLogOutCircle className="w-full text-4xl"></BiLogOutCircle>
-            
-          ) : (
-            <AiOutlineLogin className="w-full text-4xl"></AiOutlineLogin>
-            // <p>LogOut</p>
-          )}
-          </div>
+      {/* Logged in user – Show avatar with dropdown */}
+      {user?.uid ? (
+        <div className="dropdown dropdown-end mx-auto">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+              <img src={user?.photoURL || avatar} alt="profile" />
+            </div>
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu shadow bg-base-100 rounded-box w-52 mt-3"
+          >
+            <li className="text-center font-bold my-3">{user.displayName}</li>
+            <div className="divider my-1"></div>
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+            <li>
+              <button onClick={handleLogOut}>Sign Out</button>
+            </li>
+          </ul>
+        </div>
+      ) : (
+        // Logged out user – Just a login button
+        <div className="mx-auto">
+          <Link to="/login" className="btn btn-ghost btn-circle">
+            <AiOutlineLogin className="text-3xl" />
+          </Link>
+        </div>
+      )}
+      
+      {user?.uid && (
+        <label htmlFor="dashboard-drawer" tabIndex="2" className="btn-ghost btn lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
-        <ul
-          tab="0"
-          className="text-light dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
-        >
-          {user?.uid ? (
-            <>
-              
-                <div className="avatar mx-auto">
-                  <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src={user?.photoURL} alt=""/>
-                  </div>
-                  
-                </div>
-                
-              
-              <h2 className="text-center">{user?.displayName}</h2>
-              <div className="divider"></div>
-              <li><Link  htmlFor="dashboard-drawer" to="/dashboard">Dashboard</Link></li>
-              <li><button onClick={handleLogOut} className="mx-1">Sign Out</button></li>
-            </>
-            
-          ) : (
-            <li><Link className="mx-1" to="/login">Login</Link></li>
-          )}
-        </ul>
-      </div>
-      <label htmlFor="dashboard-drawer" tabIndex="2" className="btn-ghost btn lg:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16"/></svg>
-      </label>
+      )}
     </div>
   );
 };

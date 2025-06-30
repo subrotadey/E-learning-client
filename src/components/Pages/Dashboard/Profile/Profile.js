@@ -1,25 +1,35 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthProvider";
+import avatar from "../../../assets/images/profile.svg"
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
+  const [role, setRole] = useState(null);
+
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`${process.env.REACT_APP_WEBSITE_URL}/users/role/${user.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      })
+        .then(res => res.json())
+        .then(data => setRole(data.role))
+    }
+  }, [user]);
 
   return (
     <div className="max-w-3xl mx-auto mt-10 p-6 bg-base-100 shadow-xl rounded-2xl border">
       <div className="flex flex-col md:flex-row items-center gap-8">
         {/* Profile Picture */}
-        <div className="flex-shrink-0">
-          {user?.photoURL ? (
+        <div className="avatar mx-auto">
+          <div className="w-32 h-32 rounded-full border-4 border-accent shadow-md object-cover">
             <img
-              src={user.photoURL}
-              alt="Profile"
-              className="w-32 h-32 rounded-full border-4 border-accent shadow-md object-cover"
-            />
-          ) : (
-            <div className="w-32 h-32 flex items-center justify-center rounded-full border-4 border-gray-300 bg-gray-100 text-gray-400 text-4xl">
-              ?
-            </div>
-          )}
+              src={
+                user?.photoURL || avatar
+              } alt="profile" />
+          </div>
+
         </div>
 
         {/* Profile Details */}
@@ -37,7 +47,7 @@ const Profile = () => {
             </p>
             <p>
               <span className="font-semibold">🔑 Role:</span><br />
-              {user?.role || "N/A"}
+              {role || "N/A"}
             </p>
             <p>
               <span className="font-semibold">📅 Joined:</span><br />

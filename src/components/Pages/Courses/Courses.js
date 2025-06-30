@@ -66,15 +66,13 @@ const Courses = () => {
               ))}
           </div>
           <div className="pagination flex text-center justify-center items-center mt-6">
-            {/* <p>
-              currently selected page {page + 1} and size {size}
-            </p> */}
+            
             {[...Array(pages).keys()].map((number) => (
-              <div className="">
+              <div key={number}>
                 <div className=" btn-sm btn mx-3">
                   <button
                     className={page === number ? "text-primary" : undefined}
-                    key={number}
+                    
                     onClick={() => setPage(number)}
                   >
                     {number + 1}

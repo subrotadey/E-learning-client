@@ -20,8 +20,8 @@ const CourseReviews = () => {
     // Using useCallback to memoize the function
     const fetchReviews = useCallback(async () => {
         const [resReviews, resAverage] = await Promise.all([
-            fetch(`https://onlineeulogy.onrender.com/reviews/${courseId}`),
-            fetch(`https://onlineeulogy.onrender.com/reviews/average/${courseId}`)
+            fetch(`${process.env.REACT_APP_WEBSITE_URL}/reviews/${courseId}`),
+            fetch(`${process.env.REACT_APP_WEBSITE_URL}/reviews/average/${courseId}`)
         ])
         const [reviewsData, averageData] = await Promise.all([
             resReviews.json(), resAverage.json()
@@ -36,15 +36,21 @@ const CourseReviews = () => {
     }, [fetchReviews]);
 
     useEffect(() => {
-        if (user?.email) {
-            fetch(`https://onlineeulogy.onrender.com/users/admin/${user.email}`)
-                .then(res => res.json())
-                .then(data => setIsAdmin(data.isAdmin));
-        }
-    }, [user]);
+    if (user?.email) {
+        fetch(`${process.env.REACT_APP_WEBSITE_URL}/users/role/${user.email}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log("User Role:", data);
+                setIsAdmin(data.role === "admin");
+            })
+            .catch(err => console.error("Error fetching role:", err));
+    }
+}, [user]);
+
+
 
     const handleDelete = (review) => {
-        fetch(`https://onlineeulogy.onrender.com/reviews/${review._id}`, {
+        fetch(`${process.env.REACT_APP_WEBSITE_URL}/reviews/${review._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,

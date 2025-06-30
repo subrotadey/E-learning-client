@@ -158,21 +158,22 @@ const Login = () => {
           )}
         </form>
 
-        <p className="text-white mt-6">
+        <p className="text-white mt-6 text-center">
           New to Edulogy?{" "}
           <Link to="/signup" className="text-secondary underline hover:text-white">
             Create new Account
           </Link>
         </p>
 
-        <div className="divider text-white">OR</div>
-
-        <button
+        <div className="divider text-white mx-auto">OR</div>
+        <div className="flex justify-center">
+          <button
           onClick={handleGoogleSignIn}
-          className="btn btn-outline btn-white w-full max-w-xs mx-auto"
+          className="btn btn-outline btn-white w-full max-w-xs"
         >
           CONTINUE WITH GOOGLE
         </button>
+        </div>
       </div>
     </div>
   );
