@@ -1,7 +1,6 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React from "react";
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -30,7 +29,6 @@ const SignUp = () => {
     navigate(from, { replace: true });
   }
 
-  // show password in field
   const [showPassword, setShowPassword] = useState(false);
   const [setPassword] = useState("");
 
@@ -42,16 +40,13 @@ const SignUp = () => {
     setPassword(e.target.value);
   };
 
-  const handleSignUp = (data, e) => {
-    // e.preventDefault();
-    console.log(data);
+  const handleSignUp = (data) => {
     setSignUpError("");
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         toast("User Created Successfully");
-        verifyEmail(user).then(() => {});
+        verifyEmail(user);
         const userInfo = {
           displayName: data.name,
         };
@@ -61,9 +56,7 @@ const SignUp = () => {
           })
           .catch((err) => console.log(err));
       })
-
       .catch((error) => {
-        console.log(error);
         setSignUpError(error.message);
       });
   };
@@ -87,113 +80,110 @@ const SignUp = () => {
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         setUserCreatedEmail(email);
-        // console.log( 'save user',data);
       });
   };
 
   return (
-    <div className="flex h-screen items-center justify-center text-center font-mono ">
-      <div>
-        <img src={signup} alt="" />
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-4 py-10 bg-zinc-800 font-mono">
+      {/* Image */}
+      <div className="w-full max-w-md md:w-5/12 flex justify-center">
+        <img src={signup} alt="Signup Illustration" className="w-full h-auto object-contain" />
       </div>
-      <div className="flex w-3/12 items-center justify-center rounded-lg bg-zinc-800">
-        <div className="w-96 p-7">
-          <h2 className="text-center text-xl">Sign Up</h2>
-          <form onSubmit={handleSubmit(handleSignUp)}>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                {" "}
-                <span className="label-text">Name</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Your name"
-                {...register("name", {
-                  required: "Name is Required",
-                })}
-                className="input-bordered input w-full max-w-xs"
-              />
-              {errors.name && (
-                <p className="text-red-500">{errors.name.message}</p>
-              )}
-            </div>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                {" "}
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="email"
-                placeholder="Your Email"
-                {...register("email", {
-                  required: true,
-                })}
-                className="input-bordered input w-full max-w-xs"
-              />
-              {errors.email && (
-                <p className="text-red-500">{errors.email.message}</p>
-              )}
-            </div>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                {" "}
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type={showPassword ? "text" : "password"}
-                onChange={handleChange}
-                placeholder="Password"
-                className="input-bordered input w-full max-w-xs"
-                {...register("password", {
-                  required: "Password is required",
-                  minLength: {
-                    value: 6,
-                    message: "Password must be 6 characters long",
-                  },
-                  pattern: {
-                    value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
-                    message:
-                      "Password must have uppercase, number and special characters",
-                  },
-                })}
-              />
-              <span
-                className="flex w-0 bg-lime-800"
-                onClick={handleTogglePassword}
-              >
-                <input
-                  type="checkbox"
-                  className="checkbox-accent checkbox my-2"
-                />
-              </span>
 
-              {errors.password && (
-                <p className="text-red-500">{errors.password.message}</p>
-              )}
-            </div>
+      {/* Sign Up Form */}
+      <div className="w-full max-w-md md:w-5/12 bg-zinc-800 p-8 rounded-lg shadow-lg text-white">
+        <h2 className="text-center text-2xl font-semibold mb-4">Sign Up</h2>
+        <form onSubmit={handleSubmit(handleSignUp)}>
+          {/* Name */}
+          <div className="form-control w-full mb-4">
+            <label className="label">
+              <span className="label-text text-white">Name</span>
+            </label>
             <input
-              className="btn-accent btn mt-4 w-full"
-              value="Sign Up"
-              type="submit"
+              type="text"
+              placeholder="Your name"
+              {...register("name", { required: "Name is Required" })}
+              className="input input-bordered w-full"
             />
-            {signUpError && <p className="text-red-600">{signUpError}</p>}
-          </form>
-          <p>
-            Already have an account{" "}
-            <Link className="text-secondary" to="/login">
-              Please Login
-            </Link>
-          </p>
-          <div className="divider">OR</div>
-          <button
-            onClick={handleGoogleSignIn}
-            className="btn-outline btn w-full"
-          >
-            CONTINUE WITH GOOGLE
-          </button>
-        </div>
+            {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+          </div>
+
+          {/* Email */}
+          <div className="form-control w-full mb-4">
+            <label className="label">
+              <span className="label-text text-white">Email</span>
+            </label>
+            <input
+              type="email"
+              placeholder="Your Email"
+              {...register("email", { required: true })}
+              className="input input-bordered w-full"
+            />
+            {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+          </div>
+
+          {/* Password */}
+          <div className="form-control w-full mb-4">
+            <label className="label">
+              <span className="label-text text-white">Password</span>
+            </label>
+            <input
+              type={showPassword ? "text" : "password"}
+              onChange={handleChange}
+              placeholder="Password"
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be 6 characters long",
+                },
+                pattern: {
+                  value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                  message:
+                    "Password must have uppercase, number and special characters",
+                },
+              })}
+              className="input input-bordered w-full"
+            />
+            <div className="flex items-center gap-2 mt-2">
+              <input
+                type="checkbox"
+                className="checkbox checkbox-accent"
+                onClick={handleTogglePassword}
+              />
+              <span>Show Password</span>
+            </div>
+            {errors.password && (
+              <p className="text-red-500">{errors.password.message}</p>
+            )}
+          </div>
+
+          {/* Submit */}
+          <input
+            className="btn btn-accent w-full mt-4"
+            value="Sign Up"
+            type="submit"
+          />
+          {signUpError && <p className="text-red-600 mt-2">{signUpError}</p>}
+        </form>
+
+        <p className="mt-4">
+          Already have an account?{" "}
+          <Link className="text-secondary underline" to="/login">
+            Please Login
+          </Link>
+        </p>
+
+        <div className="divider text-white">OR</div>
+
+        <button
+          onClick={handleGoogleSignIn}
+          className="btn btn-outline w-full"
+        >
+          CONTINUE WITH GOOGLE
+        </button>
       </div>
     </div>
   );
