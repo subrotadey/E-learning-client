@@ -8,7 +8,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`${process.env.REACT_APP_WEBSITE_URL}/users/role/${user.email}`, {
+      fetch(`https://onlineeulogy.onrender.com/users/role/${user.email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },
