@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import useToken from "../../Hooks/useToken";
-import login from "../../assets/images/sign-in.gif";
 
 const Login = () => {
   const {
@@ -68,17 +67,14 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-4 py-10 bg-zinc-800 ">
-      {/* Image */}
-      <div className="w-full max-w-md md:w-5/12 flex justify-center">
-        <img src={login} alt="Login Illustration" className="w-full h-auto object-contain" />
-      </div>
+    <div className="min-h-screen mx-auto pt-20 flex items-center justify-center ">
+      
 
       {/* Login Form */}
-      <div className="w-full max-w-md md:w-5/12 bg-zinc-800 p-8 rounded-lg shadow-lg text-white">
+      <div className="w-full max-w-md md:w-5/12  p-8 rounded-lg shadow-lg ">
         <form onSubmit={handleSubmit(handleLogin)} className="text-center">
           <h2 className="text-2xl font-semibold mb-4">Login</h2>
-          <p className="mb-4 text-sm text-gray-300">Click the button for role wise login</p>
+          <p className="mb-4 text-sm ">Click the button for role wise login</p>
 
           <div className="flex justify-center gap-3 mb-6 flex-wrap">
             <button type="button" onClick={fillDemoAdmin} className="btn btn-sm btn-secondary">
@@ -103,7 +99,7 @@ const Login = () => {
               })}
               aria-invalid={errors.email ? "true" : "false"}
               type="email"
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs bg-white input-accent"
               placeholder="Enter your email"
             />
             {errors.email && <p className="text-red-600">{errors.email?.message}</p>}
@@ -120,7 +116,7 @@ const Login = () => {
                 minLength: { value: 6, message: "Password at least 6 characters" },
               })}
               type={showPassword ? "text" : "password"}
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs bg-white input-accent "
               placeholder="Enter your password"
             />
             {errors.password && <p className="text-red-600">{errors.password?.message}</p>}
@@ -160,7 +156,7 @@ const Login = () => {
 
         <p className="text-white mt-6 text-center">
           New to Edulogy?{" "}
-          <Link to="/signup" className="text-secondary underline hover:text-white">
+          <Link to="/signup" className="text-secondary underline hover:text-black">
             Create new Account
           </Link>
         </p>

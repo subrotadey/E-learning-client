@@ -30,6 +30,7 @@ import BecomeInstructor from "../../Pages/Dashboard/BecomeInstructor/BecomeInstr
 import InstructorRequest from "../../Pages/Dashboard/InstructorRequests/InstructorRequests";
 import TeacherCourse from "../../Pages/Dashboard/TeacherCourse/TeacherCourse";
 import Profile from "../../Pages/Dashboard/Profile/Profile";
+import RecentPosts from "../../Pages/RecentPosts/RecentPosts";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "/blogs",
+        element: <RecentPosts></RecentPosts>,
       },
       {
         path: "/contact",

@@ -23,7 +23,7 @@ const MyBooking = () => {
   });
 
   return (
-    <div>
+    <div className="bg-white mt-28">
       <h3 className="mb-5 text-3xl">My Bookings</h3>
       <div className="overflow-x-auto">
         <table className="table w-full">
@@ -40,7 +40,7 @@ const MyBooking = () => {
           <tbody>
             {bookings &&
               bookings?.map((booking, i) => (
-                <tr key={booking._id} className="hover">
+                <tr key={booking._id} className="hover ">
                   <th>{i + 1}</th>
                   <td>{booking.userName}</td>
                   <td>{booking.courseName}</td>

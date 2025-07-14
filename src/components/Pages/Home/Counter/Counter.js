@@ -10,7 +10,7 @@ const Counter = () => {
       onEnter={() => setCounterOn(true)}
       onExit={() => () => setCounterOn(false)}
     >
-      <div className="grid px-8 md:grid-cols-2 lg:grid-cols-5 text-white text-center  flex items-center bg-sky-400 py-12">
+      <div className="grid px-8 md:grid-cols-2 lg:grid-cols-5 text-white text-center bg-indigo-500 py-12 w-11/12 mx-auto">
         <div className="m-5 uppercase flex items-center">
           <BsEmojiSmile className="mx-3 text-5xl" />
           <div>

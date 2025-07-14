@@ -9,14 +9,14 @@ import support from '../../../assets/icons/support.svg'
 
 const Characteristics = () => {
     return (
-        <div className='lg:px-12'>
-            <div className='border-l-8 border-l-indigo-600 p-6 m-6  text-white '>
+        <div className='mx-auto w-11/12'>
+            <div className='border-l-8 border-l-indigo-600 p-6 my-6 '>
                 <h1 className='text-6xl font-bold italic'>
                     <span  className='text-2xl font-bold text-indigo-500'>MEMBERSHIPS <br /></span>
                      INCLUDE</h1>
                 <h5 className='text-lg font-sans'>Phasellus non dolor nibh. Nullam elementum tellus pretium feugiat. Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed tincidunt tristique enim sed sollcitudin.</h5>
             </div>
-            <div className='grid sm:grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5 p-6 dark:text-white'>
+            <div className='grid sm:grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5 py-6'>
                 <CharacteristicsCard bgClass="bg-accent" cardDetails="This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer." cardTitle="Unlimited access" img={unlock}></CharacteristicsCard>
                 <CharacteristicsCard bgClass="bg-gradient-to-r from-cyan-500 to-blue-500" cardDetails="This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer." cardTitle="4500 video courses" img={video}></CharacteristicsCard>
                 <CharacteristicsCard bgClass="bg-accent" cardDetails="This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer." cardTitle="Expert teachers" img={microphone}></CharacteristicsCard>

@@ -6,6 +6,7 @@ import FeatureInfo from "./FeatureInfo/FeatureInfo";
 import HomeCourses from "./HomeCourses/HomeCourses";
 import Info from "./Info/Info";
 import Testimonials from "./Testimonials/Testimonials";
+import ConnectedSection from "./ConnectedSection/ConnectedSection";
 
 const Home = () => {
   return (
@@ -16,8 +17,8 @@ const Home = () => {
       <FeatureInfo></FeatureInfo>
       <HomeCourses></HomeCourses>
       <Counter></Counter>
-      {/* <HomeTeachers></HomeTeachers> */}
       <Testimonials></Testimonials>
+      <ConnectedSection/>
     </div>
   );
 };

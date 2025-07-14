@@ -6,7 +6,6 @@ import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import useToken from "../../Hooks/useToken";
-import signup from "../../assets/images/sign-up.gif";
 
 const SignUp = () => {
   const {
@@ -86,14 +85,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-4 py-10 bg-zinc-800 font-mono">
-      {/* Image */}
-      <div className="w-full max-w-md md:w-5/12 flex justify-center">
-        <img src={signup} alt="Signup Illustration" className="w-full h-auto object-contain" />
-      </div>
-
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-4 py-10  font-mono mt-20">
       {/* Sign Up Form */}
-      <div className="w-full max-w-md md:w-5/12 bg-zinc-800 p-8 rounded-lg shadow-lg text-white">
+      <div className="w-full max-w-md md:w-5/12 p-8 rounded-lg shadow-lg ">
         <h2 className="text-center text-2xl font-semibold mb-4">Sign Up</h2>
         <form onSubmit={handleSubmit(handleSignUp)}>
           {/* Name */}
@@ -105,7 +99,7 @@ const SignUp = () => {
               type="text"
               placeholder="Your name"
               {...register("name", { required: "Name is Required" })}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full input-accent bg-white"
             />
             {errors.name && <p className="text-red-500">{errors.name.message}</p>}
           </div>
@@ -119,7 +113,7 @@ const SignUp = () => {
               type="email"
               placeholder="Your Email"
               {...register("email", { required: true })}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full input-accent bg-white"
             />
             {errors.email && <p className="text-red-500">{errors.email.message}</p>}
           </div>
@@ -145,7 +139,7 @@ const SignUp = () => {
                     "Password must have uppercase, number and special characters",
                 },
               })}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full input-accent bg-white"
             />
             <div className="flex items-center gap-2 mt-2">
               <input
@@ -171,7 +165,7 @@ const SignUp = () => {
 
         <p className="mt-4">
           Already have an account?{" "}
-          <Link className="text-secondary underline" to="/login">
+          <Link className="text-secondary underline hover:text-black" to="/login">
             Please Login
           </Link>
         </p>

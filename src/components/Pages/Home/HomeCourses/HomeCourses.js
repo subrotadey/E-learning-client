@@ -15,8 +15,8 @@ const HomeCourses = () => {
   }, []);
 
   return (
-    <div className="mb-4 px-12">
-      <div className="m-6 border-l-8 border-l-indigo-600 p-6  text-white">
+    <div className="mx-auto w-11/12">
+      <div className=" border-l-8 border-l-indigo-600 p-6 my-6">
         <h1 className="text-6xl font-bold uppercase italic">
           <span className="text-2xl font-bold text-indigo-500">
             popular <br />
@@ -33,8 +33,8 @@ const HomeCourses = () => {
         </h5>
       </div>
       <div className="pt-12">
-        <div className="grid place-content-around gap-4 lg:grid-cols-3">
-          {courses.slice(0, 3).map((course) => (
+        <div className="grid place-content-around gap-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
+          {courses.slice(0, 4).map((course) => (
             <HomeCourse key={course._id} course={course}></HomeCourse>
           ))}
         </div>

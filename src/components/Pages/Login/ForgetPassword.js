@@ -41,13 +41,13 @@ const ForgetPassword = () => {
         <div>
           <img src={forgetPassword} alt="" />
         </div>
-        <div className="flex w-3/12 items-center justify-center rounded-lg border-accent bg-zinc-800">
+        <div className="flex w-3/12 items-center justify-center rounded-lg border-accent">
           <div className="w-96 border-accent p-7">
             <form onSubmit={handleSubmit(handleLogin)}>
               <h2 className="text-center text-xl">Reset Password</h2>
               <div className="form-control my-8 w-full">
                 <label className="label">
-                  <span className="label-text">Enter Your Email Email</span>
+                  <span className="label-text text-black ">Enter Your Email Email</span>
                 </label>
                 <input
                   {...register("email", {
@@ -56,7 +56,7 @@ const ForgetPassword = () => {
                   aria-invalid={errors.email ? "true" : "false"}
                   type="email"
                   onBlur={handleEmailBlur}
-                  className="input-bordered input w-full max-w-xs"
+                  className="input-bordered input w-full max-w-xs bg-white input-accent"
                 />
                 {errors.email && (
                   <p className="text-red-600">{errors.email?.message}</p>

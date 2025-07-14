@@ -1,112 +1,80 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import footer from "../../../assets/images/bgfooter.jpg";
-
+import logo from '../../../assets/images/logo1.png';
 const Footer = () => {
-  return (
-    <div>
-      <div className="text-center text-black py-20 bg-blue-300 text-3xl">
-        <h1>Stay Connected With Us!</h1>
-      </div>
-      <div
-      className="text-white"
-      style={{
-        background: `url(${footer})`,
-        backgroundSize: "cover",
-      }}
-    >
-      <footer className="footer p-10">
-        <div>
-          <span className="footer-title">Services</span>
-          <Link className="link-hover link">Branding</Link>
-          <Link className="link-hover link">Design</Link>
-          <Link className="link-hover link">Marketing</Link>
-          <Link className="link-hover link">Advertisement</Link>
-        </div>
-        <div>
-          <span className="footer-title">Company</span>
-          <Link className="link-hover link">About us</Link>
-          <Link className="link-hover link">Contact</Link>
-          <Link className="link-hover link">Jobs</Link>
-          <Link className="link-hover link">Press kit</Link>
-        </div>
-        <div>
-          <span className="footer-title">Legal</span>
-          <Link className="link-hover link">Terms of use</Link>
-          <Link className="link-hover link">Privacy policy</Link>
-          <Link className="link-hover link">Cookie policy</Link>
-        </div>
-      </footer>
+    return (
+        <div className='text-gray-500/80 pt-8 px-6 md:px-16 lg:px-24 xl:px-32'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8'>
+                <div className='max-w-80'>
+                    <img src={logo} alt="logo" className='w-2/3' />
+                    <p className='text-sm'>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                    </p>
+                    <div className='flex items-center gap-3 mt-4'>
+                        {/* Instagram */}
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zM4.5 7.75A3.25 3.25 0 017.75 4.5h8.5a3.25 3.25 0 013.25 3.25v8.5a3.25 3.25 0 01-3.25 3.25h-8.5a3.25 3.25 0 01-3.25-3.25v-8.5zm9.5 1a4 4 0 11-4 4 4 4 0 014-4zm0 1.5a2.5 2.5 0 102.5 2.5 2.5 2.5 0 00-2.5-2.5zm3.5-.75a.75.75 0 11.75-.75.75.75 0 01-.75.75z" />
+                        </svg>
+                        {/* Facebook */}
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M13.5 9H15V6.5h-1.5c-1.933 0-3.5 1.567-3.5 3.5v1.5H8v3h2.5V21h3v-7.5H16l.5-3h-3z" />
+                        </svg>
+                        {/* Twitter */}
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22 5.92a8.2 8.2 0 01-2.36.65A4.1 4.1 0 0021.4 4a8.27 8.27 0 01-2.6 1A4.14 4.14 0 0016 4a4.15 4.15 0 00-4.15 4.15c0 .32.04.64.1.94a11.75 11.75 0 01-8.52-4.32 4.14 4.14 0 001.29 5.54A4.1 4.1 0 013 10v.05a4.15 4.15 0 003.33 4.07 4.12 4.12 0 01-1.87.07 4.16 4.16 0 003.88 2.89A8.33 8.33 0 012 19.56a11.72 11.72 0 006.29 1.84c7.55 0 11.68-6.25 11.68-11.67 0-.18 0-.35-.01-.53A8.18 8.18 0 0022 5.92z" />
+                        </svg>
+                        {/* LinkedIn */}
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M4.98 3.5C3.88 3.5 3 4.38 3 5.48c0 1.1.88 1.98 1.98 1.98h.02c1.1 0 1.98-.88 1.98-1.98C6.98 4.38 6.1 3.5 4.98 3.5zM3 8.75h3.96V21H3V8.75zm6.25 0h3.8v1.68h.05c.53-.98 1.82-2.02 3.75-2.02 4.01 0 4.75 2.64 4.75 6.07V21H17v-5.63c0-1.34-.03-3.07-1.88-3.07-1.88 0-2.17 1.47-2.17 2.98V21H9.25V8.75z" />
+                        </svg>
+                    </div>
+                </div>
 
-      <footer className="footer border-t px-10 py-4">
-        <div className="grid-flow-col items-center">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            fillRule="evenodd"
-            clipRule="evenodd"
-            className="fill-current"
-          >
-            <path d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
-          </svg>
-          <p>
-            Edulogy <br />
-            Providing reliable course since 2015
-          </p>
+                <div>
+                    <p className='text-lg text-gray-800'>COMPANY</p>
+                    <ul className='mt-3 flex flex-col gap-2 text-sm'>
+                        <li><a href="/">About</a></li>
+                        <li><a href="/">Careers</a></li>
+                        <li><a href="/">Press</a></li>
+                        <li><a href="/">Blog</a></li>
+                        <li><a href="/">Partners</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p className='text-lg text-gray-800'>SUPPORT</p>
+                    <ul className='mt-3 flex flex-col gap-2 text-sm'>
+                        <li><a href="/">Help Center</a></li>
+                        <li><a href="/">Safety Information</a></li>
+                        <li><a href="/">Cancellation Options</a></li>
+                        <li><a href="/">Contact Us</a></li>
+                        <li><a href="/">Accessibility</a></li>
+                    </ul>
+                </div>
+
+                <div className='max-w-80'>
+                    <p className='text-lg text-gray-800'>STAY UPDATED</p>
+                    <p className='mt-3 text-sm'>
+                        Subscribe to our newsletter for inspiration and special offers.
+                    </p>
+                    <div className='flex items-center mt-4'>
+                        <input type="text" className='bg-white rounded-l border border-gray-300 h-9 px-3 outline-none' placeholder='Your email' />
+                        <button className='flex items-center justify-center bg-black h-9 w-9 aspect-square rounded-r'>
+                            {/* Arrow icon */}
+                            <svg className="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12H5m14 0-4 4m4-4-4-4" /></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <hr className='border-gray-300 mt-8' />
+            <div className='flex flex-col md:flex-row gap-2 items-center justify-between py-5'>
+                <p>© {new Date().getFullYear()} Subrota Dey. All rights reserved.</p>
+                <ul className='flex items-center gap-4'>
+                    <li><a href="/">Privacy</a></li>
+                    <li><a href="/">Terms</a></li>
+                    <li><a href="/">Sitemap</a></li>
+                </ul>
+            </div>
         </div>
-        <div className="md:place-self-center md:justify-self-end">
-          <div className="grid grid-flow-col gap-4 ">
-            <Link>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
-                viewBox="0 0 24 24"
-                className="fill-current transition ease-in-out hover:text-white"
-              >
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-              </svg>
-            </Link>
-            <Link>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
-                viewBox="0 0 24 24"
-                className="fill-current hover:text-white"
-              >
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-              </svg>
-            </Link>
-            <Link>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
-                viewBox="0 0 24 24"
-                className="fill-current hover:text-white"
-              >
-                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </footer>
-      <footer className="pb-5 text-center">
-        <div>
-          <p>
-            Copyright © 2023 - All right reserved by{" "}
-            <span className="font-semibold text-teal-500">EDULOGY</span>. Learn
-            with{" "}
-            <span className="font-semibold text-teal-500"><a target='blank' href='https://www.linkedin.com/in/subrota-dey-9a7579210/'>SUBROTA DEY</a></span>
-          </p>
-        </div>
-      </footer>
-    </div>
-    </div>
-  );
+    );
 };
 
 export default Footer;
