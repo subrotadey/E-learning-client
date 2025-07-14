@@ -23,7 +23,7 @@ const Course = ({ course }) => {
       {/* Tooltip Trigger */}
       <div
         id={tooltipId}
-        className="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+        className="card shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
       >
         <figure>
           <img src={img} alt={heading} className="h-40 w-full object-cover" />
@@ -49,7 +49,7 @@ const Course = ({ course }) => {
         anchorSelect={`#${tooltipId}`}
         place="right"
         clickable
-        className="z-50 max-w-xs !rounded-xl !p-4 !bg-base-100 !border !border-gray-300 !shadow-lg text-left"
+        className="z-50 max-w-xs !rounded-xl !p-4 !border !border-gray-300 !shadow-lg text-left"
       >
         <p className="text-success text-xs font-semibold">Course Overview</p>
         <p className="font-bold mt-1 mb-2">{heading}</p>
@@ -63,7 +63,6 @@ const Course = ({ course }) => {
           <li><strong>Price:</strong> ${price}</li>
         </ul>
         <button className="btn-primary btn my-4">
-
           <Link to={`/course/${_id}`}>View Details</Link>
         </button>
       </Tooltip>

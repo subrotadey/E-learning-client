@@ -85,24 +85,6 @@ const router = createBrowserRouter([
         path: "/forgetpassword",
         element: <ForgetPassword></ForgetPassword>,
       },
-
-      // loader: async () => {
-      //   return fetch("https://onlineeulogy.onrender.com/courses");
-      // },
-      // {
-      //   path: "/",
-      //   loader: async () => {
-      //     return fetch("https://onlineeulogy.onrender.com/courses");
-      //   },
-      //   element: <Home></Home>,
-      // },
-      // {
-      //   path: "/",
-      //   loader: async () => {
-      //     return fetch("https://onlineeulogy.onrender.com/courses");
-      //   },
-      //   element: <HomeCourses></HomeCourses>,
-      // },
       {
         path: "/course/:courseId",
         loader: async ({ params }) => {
@@ -120,10 +102,6 @@ const router = createBrowserRouter([
         path: "/reviews/:courseId",
         element: <CourseReviews></CourseReviews>,
       },
-      // {
-      //   path: "/average-rating/:courseId",
-      //   element: <></>,
-      // },
       {
         path: "/books",
         loader: async () => {

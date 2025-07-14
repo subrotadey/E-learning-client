@@ -16,14 +16,14 @@ const DashboardLayout = () => {
   return (
     <div>
       <Navbar />
-      <div className="drawer drawer-mobile">
+      <div className="drawer drawer-mobile ">
         <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content mt-20">
+        <div className="drawer-content">
           <Outlet />
         </div>
-        <div className="drawer-side mt-16">
+        <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 text-base-content bg-base-300">
+          <ul className="menu p-4 w-80 ">
             <h2 className="text-3xl">DASHBOARD</h2>
             <div className="divider"></div>
 
@@ -39,7 +39,7 @@ const DashboardLayout = () => {
             {/* Instructor */}
             {isInstructor && (
               <>
-              <li><Link to="/dashboard">My Profile</Link></li>
+                <li><Link to="/dashboard">My Profile</Link></li>
                 <li><Link to="/dashboard/addcourse">Add Course</Link></li>
                 <li><Link to="/dashboard/teacher-course">My Publish Course</Link></li>
               </>
@@ -48,7 +48,7 @@ const DashboardLayout = () => {
             {/* Admin */}
             {isAdmin && (
               <>
-              <li><Link to="/dashboard">My Profile</Link></li>
+                <li><Link to="/dashboard">My Profile</Link></li>
                 <li><Link to="/dashboard/my-booking">My Courses</Link></li>
                 <li><Link to="/dashboard/allusers">All Users</Link></li>
                 <li><Link to="/dashboard/instructor-requests">Instructor Request</Link></li>

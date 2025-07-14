@@ -85,7 +85,7 @@ const CourseReviews = () => {
                     <p className="text-sm text-gray-500">No reviews yet for this course.</p>
                 ) : (
                     reviews.map((review) => (
-                        <div key={review._id} className="p-4 bg-base-200 rounded-lg">
+                        <div key={review._id} className="p-4  rounded-lg">
                             <div className="flex justify-between items-center">
                                 <h4 className="font-semibold">{review.user}</h4>
                                 <div className="flex text-yellow-400">

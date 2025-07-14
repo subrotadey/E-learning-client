@@ -4,7 +4,7 @@ import banner from "./../../assets/images/banner.jpg";
 const Banner = () => {
   return (
     <div
-      className="w-full h-full bg-no-repeat bg-cover overflow-x-hidden mt-16"
+      className="w-full h-full bg-no-repeat bg-cover overflow-x-hidden"
       style={{
         backgroundImage:
           "url('https://i.ibb.co/93Hrvxq/photo-1606327054536-e37e655d4f4a.jpg')",

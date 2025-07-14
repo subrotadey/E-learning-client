@@ -127,7 +127,7 @@ const CheckOutForm = ({ booking }) => {
       </form>
       <p className="text-red-500">{cardError}</p>
       {success && (
-        <div className="mockup-window border border-base-300 bg-base-300">
+        <div className="mockup-window border border-base-300 ">
           <div className="border-t border-base-300 px-4 py-16">
             <p className="text-green-500">{success}</p>
             <p>

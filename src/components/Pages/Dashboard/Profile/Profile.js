@@ -19,7 +19,7 @@ const Profile = () => {
   }, [user]);
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 p-6 bg-base-100 shadow-xl rounded-2xl border">
+    <div className="max-w-3xl mx-auto mt-10 p-6  shadow-xl rounded-2xl border">
       <div className="flex flex-col md:flex-row items-center gap-8">
         {/* Profile Picture */}
         <div className="avatar mx-auto">
