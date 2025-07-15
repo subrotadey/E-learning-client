@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Shakil Ahmed",
+    "image": "https://i.ibb.co/0ZXkW3g/student1.jpg",
+    "course": "Full-Stack Web Development",
+    "story": "After completing the course, I landed a remote job at a startup in Germany. This platform truly changed my life!",
+    "location": "Dhaka, Bangladesh",
+    "date": "April 2024"
+  },
+  {
+    "id": 2,
+    "name": "Ayesha Sultana",
+    "image": "https://i.ibb.co/hK5qPdg/student2.jpg",
+    "course": "Python for Data Science",
+    "story": "I transitioned from a non-tech background into a data analyst role. Thank you for the practical training and support.",
+    "location": "Chattogram, Bangladesh",
+    "date": "June 2024"
+  },
+  {
+    "id": 3,
+    "name": "Tanvir Hasan",
+    "image": "https://i.ibb.co/4dTx3f5/student3.jpg",
+    "course": "Graphic Design Masterclass",
+    "story": "Now I’m freelancing on Fiverr with consistent income. Highly recommended for creative learners.",
+    "location": "Khulna, Bangladesh",
+    "date": "May 2024"
+  },
+  {
+    "id": 4,
+    "name": "Nusrat Jahan",
+    "image": "https://i.ibb.co/NZV7N0V/student4.jpg",
+    "course": "Spoken English & IELTS",
+    "story": "This course helped me score 7.5 in IELTS and I’m now preparing for higher studies in the UK.",
+    "location": "Sylhet, Bangladesh",
+    "date": "March 2024"
+  }
+]

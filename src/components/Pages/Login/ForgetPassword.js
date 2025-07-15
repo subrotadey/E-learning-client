@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import forgetPassword from "../../assets/images/email-verification.gif";
 
 const ForgetPassword = () => {
   const {
@@ -37,10 +36,7 @@ const ForgetPassword = () => {
 
   return (
     <>
-      <div className="flex h-screen items-center justify-evenly text-center font-mono ">
-        <div>
-          <img src={forgetPassword} alt="" />
-        </div>
+      <div className="flex items-center justify-center text-center pt-20 my-6 w-11/12 mx-auto">
         <div className="flex w-3/12 items-center justify-center rounded-lg border-accent">
           <div className="w-96 border-accent p-7">
             <form onSubmit={handleSubmit(handleLogin)}>

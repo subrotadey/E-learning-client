@@ -6,7 +6,7 @@ const Banner = () => {
       <main className="flex flex-col md:flex-row items-center max-md:text-center justify-between mt-16 pb-16 px-6 sm:px-10 md:px-24 max-w-7xl mx-auto w-full">
         <div className="flex flex-col items-center md:items-start">
           <Link to="/courses">
-            <button
+            <button 
               className="mt-16 mb-6 flex items-center space-x-2 border border-indigo-600 text-indigo-600 text-xs rounded-full px-4 pr-1.5 py-1.5 hover:bg-indigo-50 transition"
               type="button"
             >
@@ -34,6 +34,7 @@ const Banner = () => {
           </p>
 
           <div className="flex flex-col md:flex-row items-center mt-8 gap-3">
+            <Link to="/success-story">
             <button
               className="bg-indigo-600 text-white px-6 pr-2.5 py-2.5 rounded-full text-sm font-medium flex items-center space-x-2 hover:bg-indigo-700 transition"
               type="button"
@@ -50,13 +51,15 @@ const Banner = () => {
                 />
               </svg>
             </button>
+            </Link>
 
-            <a
+            <Link
+              to="/signup"
               className="text-indigo-600 bg-indigo-100 px-5 py-2 rounded-full text-sm font-medium hover:bg-indigo-200 transition"
-              href="/"
+              
             >
               Get Started
-            </a>
+            </Link>
           </div>
         </div>
 

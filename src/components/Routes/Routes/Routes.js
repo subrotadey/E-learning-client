@@ -31,6 +31,7 @@ import InstructorRequest from "../../Pages/Dashboard/InstructorRequests/Instruct
 import TeacherCourse from "../../Pages/Dashboard/TeacherCourse/TeacherCourse";
 import Profile from "../../Pages/Dashboard/Profile/Profile";
 import RecentPosts from "../../Pages/RecentPosts/RecentPosts";
+import SuccessStories from "../../Pages/SuccessStories/SuccessStories";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>,
+      },
+      {
+        path: "/success-story",
+        element: <SuccessStories/>,
       },
       {
         path: "/teachers",

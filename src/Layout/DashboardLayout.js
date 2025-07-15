@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
-import Navbar from "../components/Pages/Shared/Navbar/Navbar";
 import { AuthContext } from "../contexts/AuthProvider";
 import useRole from "../components/Hooks/useRole";
+import DashboardBar from "../components/Pages/Dashboard/DashboardBar/DashboardBar";
 
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
@@ -15,7 +15,7 @@ const DashboardLayout = () => {
 
   return (
     <div>
-      <Navbar />
+      <DashboardBar />
       <div className="drawer drawer-mobile ">
         <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">

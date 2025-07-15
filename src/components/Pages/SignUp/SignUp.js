@@ -85,7 +85,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-4 py-10  font-mono mt-20">
+    <div className="mx-auto pt-20 flex items-center justify-center w-11/12 my-6">
       {/* Sign Up Form */}
       <div className="w-full max-w-md md:w-5/12 p-8 rounded-lg shadow-lg ">
         <h2 className="text-center text-2xl font-semibold mb-4">Sign Up</h2>
