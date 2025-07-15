@@ -57,13 +57,8 @@ const BecomeInstructor = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white font-mono flex items-center justify-center px-4 py-10">
-            <div className="w-full max-w-4xl bg-zinc-800 rounded-xl shadow-xl flex flex-col md:flex-row overflow-hidden">
-                {/* Optional Image section */}
-                <div className="hidden md:flex md:w-1/2 bg-cover bg-center" style={{ backgroundImage: "url('https://i.ibb.co/Rpjm34gN/705.jpg')" }}>
-                    {/* Optional image from imgBB or assets */}
-                </div>
-
+        <div className="font-mono flex items-center justify-center px-4 py-10">
+            
                 {/* Form Section */}
                 <div className="w-full md:w-1/2 p-8">
                     <h2 className="text-3xl font-semibold text-center mb-6">Become an Instructor</h2>
@@ -76,7 +71,7 @@ const BecomeInstructor = () => {
                                 type="text"
                                 placeholder="First Name"
                                 {...register("first_name", { required: "First name is required" })}
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full bg-white"
                             />
                             {errors.first_name && <p className="text-red-500">{errors.first_name.message}</p>}
                         </div>
@@ -88,7 +83,7 @@ const BecomeInstructor = () => {
                                 type="text"
                                 placeholder="Last Name"
                                 {...register("last_name", { required: "Last name is required" })}
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full bg-white"
                             />
                             {errors.last_name && <p className="text-red-500">{errors.last_name.message}</p>}
                         </div>
@@ -99,7 +94,7 @@ const BecomeInstructor = () => {
                                 type="email"
                                 placeholder="Email"
                                 {...register("email", { required: "Email is required" })}
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full bg-white"
                             />
                             {errors.email && <p className="text-red-500">{errors.email.message}</p>}
                         </div>
@@ -111,7 +106,7 @@ const BecomeInstructor = () => {
                                 type="text"
                                 placeholder="e.g., Senior Web Developer"
                                 {...register("designation", { required: "Designation is required" })}
-                                className="input input-bordered w-full"
+                                className="input input-bordered w-full bg-white"
                             />
                             {errors.designation && <p className="text-red-500">{errors.designation.message}</p>}
                         </div>
@@ -123,7 +118,7 @@ const BecomeInstructor = () => {
                                 rows="4"
                                 placeholder="Tell us about your experience..."
                                 {...register("description", { required: "Description is required" })}
-                                className="textarea textarea-bordered w-full"
+                                className="textarea textarea-bordered w-full bg-white"
                             />
                             {errors.description && <p className="text-red-500">{errors.description.message}</p>}
                         </div>
@@ -134,7 +129,7 @@ const BecomeInstructor = () => {
                             <input
                                 type="file"
                                 {...register("img_link", { required: "Photo is Required" })}
-                                className="file-input-bordered file-input-accent file-input w-full"
+                                className="file-input-bordered file-input-accent file-input w-full bg-white"
                             />
                             {errors.img_link && (
                                 <p className="text-red-500">{errors.img_link.message}</p>
@@ -151,7 +146,7 @@ const BecomeInstructor = () => {
                         </Link>
                     </p>
                 </div>
-            </div>
+            
         </div>
     );
 };

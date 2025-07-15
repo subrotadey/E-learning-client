@@ -63,13 +63,13 @@ const AddTeacher = () => {
       >
         {/* First Name */}
         <div>
-          <label className="label-text font-medium">First Name</label>
+          <label className="label-text font-medium text-black">First Name</label>
           <input
             type="text"
             {...register("first_name", {
               required: "This Field is Required",
             })}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-white"
             placeholder="e.g. John"
           />
           {errors.first_name && (
@@ -79,13 +79,13 @@ const AddTeacher = () => {
 
         {/* Last Name */}
         <div>
-          <label className="label-text font-medium">Last Name</label>
+          <label className="label-text font-medium text-black">Last Name</label>
           <input
             type="text"
             {...register("last_name", {
               required: "This Field is Required",
             })}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-white"
             placeholder="e.g. Doe"
           />
           {errors.last_name && (
@@ -95,13 +95,13 @@ const AddTeacher = () => {
 
         {/* Email */}
         <div>
-          <label className="label-text font-medium">Email</label>
+          <label className="label-text font-medium text-black">Email</label>
           <input
             type="email"
             {...register("email", {
               required: "Email is required",
             })}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-white"
             placeholder="e.g. john@example.com"
           />
           {errors.email && (
@@ -111,13 +111,13 @@ const AddTeacher = () => {
 
         {/* Designation */}
         <div>
-          <label className="label-text font-medium">Designation</label>
+          <label className="label-text font-medium text-black">Designation</label>
           <input
             type="text"
             {...register("designation", {
               required: "This Field is Required",
             })}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-white"
             placeholder="e.g. Senior Instructor"
           />
           {errors.designation && (
@@ -127,12 +127,12 @@ const AddTeacher = () => {
 
         {/* Description */}
         <div className="">
-          <label className="label-text font-medium">Description</label>
+          <label className="label-text font-medium text-black">Description</label>
           <textarea
             {...register("description", {
               required: "This Field is Required",
             })}
-            className="textarea textarea-bordered w-full"
+            className="textarea textarea-bordered w-full bg-white"
             placeholder="Short bio or description"
             rows={4}
           ></textarea>
@@ -143,13 +143,13 @@ const AddTeacher = () => {
 
         {/* Image Upload */}
         <div className="">
-          <label className="label-text font-medium">Photo</label>
+          <label className="label-text font-medium text-black">Photo</label>
           <input
             type="file"
             {...register("image", {
               required: "Photo is Required",
             })}
-            className="file-input file-input-bordered w-full"
+            className="file-input file-input-bordered w-full bg-white"
           />
           {errors.image && (
             <p className="text-red-500 text-sm">{errors.image.message}</p>

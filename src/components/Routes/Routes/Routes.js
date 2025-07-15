@@ -32,6 +32,7 @@ import TeacherCourse from "../../Pages/Dashboard/TeacherCourse/TeacherCourse";
 import Profile from "../../Pages/Dashboard/Profile/Profile";
 import RecentPosts from "../../Pages/RecentPosts/RecentPosts";
 import SuccessStories from "../../Pages/SuccessStories/SuccessStories";
+import EnrollmentBarChart from "../../Pages/Dashboard/EnrollmentBarChart/EnrollmentBarChart";
 
 const router = createBrowserRouter([
   {
@@ -142,6 +143,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Profile></Profile>,
+      },
+      {
+        path: "/dashboard/enroll-stats",
+        element: <EnrollmentBarChart/>,
       },
       {
         path: "/dashboard/my-booking",

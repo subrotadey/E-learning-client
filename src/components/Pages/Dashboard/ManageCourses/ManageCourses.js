@@ -51,11 +51,11 @@ const ManageCourses = () => {
             {/* head */}
             <thead>
               <tr>
-                <th>Serial No</th>
-                <th>Avatar</th>
-                <th>Course Name</th>
-                <th>Delete Course</th>
-                <th>Action</th>
+                <th className="bg-white">Serial No</th>
+                <th className="bg-white">Avatar</th>
+                <th className="bg-white">Course Name</th>
+                <th className="bg-white">Delete Course</th>
+                <th className="bg-white">Action</th>
               </tr>
             </thead>
             <tbody>

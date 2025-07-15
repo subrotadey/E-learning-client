@@ -128,12 +128,12 @@ const InstructorRequests = () => {
                 <table className="table w-full">
                     <thead>
                         <tr>
-                            <th>Serial</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Designation</th>
-                            <th>Photo</th>
-                            <th>Actions</th>
+                            <th className="bg-white">Serial</th>
+                            <th className="bg-white">Name</th>
+                            <th className="bg-white">Email</th>
+                            <th className="bg-white">Designation</th>
+                            <th className="bg-white">Photo</th>
+                            <th className="bg-white">Actions</th>
                         </tr>
                     </thead>
                     <tbody>

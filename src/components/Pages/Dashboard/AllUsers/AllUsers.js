@@ -62,20 +62,20 @@ const AllUsers = () => {
           {/* head */}
           <thead>
             <tr>
-              <th>Serial No</th>
-              <th>Name</th>
-              <th>Users Email</th>
-              <th>Admin</th>
-              <th>Action</th>
+              <th className="bg-white">Serial No</th>
+              <th className="bg-white">Name</th>
+              <th className="bg-white">Users Email</th>
+              <th className="bg-white">Admin</th>
+              <th className="bg-white">Action</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user, i) => (
-              <tr key={user._id} className="hover">
-                <th>{i + 1}</th>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>
+              <tr key={user._id} >
+                <th className="bg-white">{i + 1}</th>
+                <td className="bg-white">{user.name}</td>
+                <td className="bg-white">{user.email}</td>
+                <td className="bg-white">
                   {user?.role !== "admin" && (
                     <button
                       onClick={() => handleMakeAdmin(user._id)}
@@ -85,7 +85,7 @@ const AllUsers = () => {
                     </button>
                   )}
                 </td>
-                <td>
+                <td className="bg-white">
                   <label
                     onClick={() => setDeletingUser(user)}
                     htmlFor="confirmation-modal"

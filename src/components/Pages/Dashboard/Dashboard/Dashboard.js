@@ -1,10 +1,11 @@
 import React from 'react';
+import EnrollmentBarChart from './EnrollmentBarChart';
 
 const Dashboard = () => {
     return (
-        <div>
-            Coming Soon
-        </div>
+        <>
+            <EnrollmentBarChart />
+        </>
     );
 };
 

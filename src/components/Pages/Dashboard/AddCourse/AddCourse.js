@@ -57,19 +57,19 @@ const AddCourse = () => {
   };
 
   return (
-    <div className="px-4 md:px-10 py-8 max-w-7xl mx-auto">
+    <div className="px-4 md:px-10 py-8 max-w-7xl mx-auto bg-white">
       <h2 className="text-3xl font-semibold mb-8 text-center">📚 Add A New Course</h2>
       <form
         onSubmit={handleSubmit(handleAddCourse)}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white"
       >
         {/* Course Name */}
         <div>
-          <label className="label-text font-medium">Course Name</label>
+          <label className="label-text font-medium text-black">Course Name</label>
           <input
             type="text"
             {...register("heading", { required: "This Field is Required" })}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full  bg-white"
             placeholder="React for Beginners"
           />
           {errors.heading && <p className="text-red-500 text-sm">{errors.heading.message}</p>}
@@ -77,11 +77,11 @@ const AddCourse = () => {
 
         {/* Price */}
         <div>
-          <label className="label-text font-medium">Price (৳)</label>
+          <label className="label-text font-medium text-black">Price (৳)</label>
           <input
             type="number"
             {...register("price", { required: "This Field is Required" })}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full  bg-white"
             placeholder="e.g. 999"
           />
           {errors.price && <p className="text-red-500 text-sm">{errors.price.message}</p>}
@@ -89,11 +89,11 @@ const AddCourse = () => {
 
         {/* Weeks */}
         <div>
-          <label className="label-text font-medium">Duration (Weeks)</label>
+          <label className="label-text font-medium text-black">Duration (Weeks)</label>
           <input
             type="number"
             {...register("weeks", { required: "This Field is Required" })}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full  bg-white"
             placeholder="e.g. 6"
           />
           {errors.weeks && <p className="text-red-500 text-sm">{errors.weeks.message}</p>}
@@ -101,11 +101,11 @@ const AddCourse = () => {
 
         {/* Level */}
         <div>
-          <label className="label-text font-medium">Level</label>
+          <label className="label-text font-medium text-black">Level</label>
           <input
             type="text"
             {...register("level", { required: "This Field is Required" })}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full  bg-white"
             placeholder="Beginner / Intermediate / Advanced"
           />
           {errors.level && <p className="text-red-500 text-sm">{errors.level.message}</p>}
@@ -113,11 +113,11 @@ const AddCourse = () => {
 
         {/* Lessons */}
         <div>
-          <label className="label-text font-medium">Total Lessons</label>
+          <label className="label-text font-medium text-black">Total Lessons</label>
           <input
             type="number"
             {...register("lesson", { required: "This Field is Required" })}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full  bg-white"
             placeholder="e.g. 40"
           />
           {errors.lesson && <p className="text-red-500 text-sm">{errors.lesson.message}</p>}
@@ -125,11 +125,11 @@ const AddCourse = () => {
 
         {/* Quizzes */}
         <div>
-          <label className="label-text font-medium">Total Quizzes</label>
+          <label className="label-text font-medium text-black">Total Quizzes</label>
           <input
             type="number"
             {...register("quiz", { required: "This Field is Required" })}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full  bg-white"
             placeholder="e.g. 6"
           />
           {errors.quiz && <p className="text-red-500 text-sm">{errors.quiz.message}</p>}
@@ -137,11 +137,11 @@ const AddCourse = () => {
 
         {/* Students */}
         <div>
-          <label className="label-text font-medium">Total Students</label>
+          <label className="label-text font-medium text-black">Total Students</label>
           <input
             type="number"
             {...register("student", { required: "This Field is Required" })}
-            className="input input-bordered w-full"
+            className="input input-bordered w-full  bg-white"
             placeholder="e.g. 1200"
           />
           {errors.student && <p className="text-red-500 text-sm">{errors.student.message}</p>}
@@ -149,11 +149,11 @@ const AddCourse = () => {
 
         {/* Image Upload */}
         <div>
-          <label className="label-text font-medium">Course Image</label>
+          <label className="label-text font-medium text-black">Course Image</label>
           <input
             type="file"
             {...register("image", { required: "Photo is Required" })}
-            className="file-input file-input-bordered w-full"
+            className="file-input file-input-bordered w-full  bg-white"
           />
           {errors.image && <p className="text-red-500 text-sm">{errors.image.message}</p>}
         </div>

@@ -85,14 +85,14 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
   };
 
   return (
-    <div>
+    <div className="">
       <input
         type="checkbox"
         id="update-course-modal"
         className="modal-toggle"
       />
-      <div className="modal modal-bottom overflow-x-hidden text-center sm:modal-middle">
-        <div className="modal-box">
+      <div className="modal modal-bottom overflow-x-hidden text-center sm:modal-middle bg-white">
+        <div className="modal-box bg-white">
           <h3 className="text-lg font-bold">{heading}</h3>
           <img className="mx-auto  w-40" src={img} alt="" />
           <div>
@@ -100,14 +100,14 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
               <form onSubmit={handleSubmit(handleUpdateCourse)}>
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">Course Name or Heading</span>
+                    <span className="label-text text-black">Course Name or Heading</span>
                   </label>
                   <input
                     type="text"
                     {...register("heading", {
                       required: "This Field is Required",
                     })}
-                    className="input-bordered input w-full max-w-xs"
+                    className="input-bordered input w-full max-w-xs bg-white"
                   />
                   {errors.heading && (
                     <p className="text-red-500">{errors.heading.message}</p>
@@ -115,14 +115,14 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">Price</span>
+                    <span className="label-text  text-black">Price</span>
                   </label>
                   <input
                     type="number"
                     {...register("price", {
                       required: "This Field is Required",
                     })}
-                    className="input-bordered input w-full max-w-xs"
+                    className="input-bordered input w-full max-w-xs bg-white"
                   />
                   {errors.price && (
                     <p className="text-red-500">{errors.price.message}</p>
@@ -130,14 +130,14 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">Weeks</span>
+                    <span className="label-text  text-black">Weeks</span>
                   </label>
                   <input
                     type="number"
                     {...register("weeks", {
                       required: "This Field is Required",
                     })}
-                    className="input-bordered input w-full max-w-xs"
+                    className="input-bordered input w-full max-w-xs bg-white"
                   />
                   {errors.weeks && (
                     <p className="text-red-500">{errors.weeks.message}</p>
@@ -145,14 +145,14 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">Level</span>
+                    <span className="label-text  text-black">Level</span>
                   </label>
                   <input
                     type="text"
                     {...register("level", {
                       required: "This Field is Required",
                     })}
-                    className="input-bordered input w-full max-w-xs"
+                    className="input-bordered input w-full max-w-xs bg-white"
                   />
                   {errors.level && (
                     <p className="text-red-500">{errors.level.message}</p>
@@ -160,14 +160,14 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">Lesson</span>
+                    <span className="label-text text-black">Lesson</span>
                   </label>
                   <input
                     type="number"
                     {...register("lesson", {
                       required: "This Field is Required",
                     })}
-                    className="input-bordered input w-full max-w-xs"
+                    className="input-bordered input w-full max-w-xs bg-white"
                   />
                   {errors.lesson && (
                     <p className="text-red-500">{errors.lesson.message}</p>
@@ -175,14 +175,14 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">Quiz Number</span>
+                    <span className="label-text text-black">Quiz Number</span>
                   </label>
                   <input
                     type="number"
                     {...register("quiz", {
                       required: "This Field is Required",
                     })}
-                    className="input-bordered input w-full max-w-xs"
+                    className="input-bordered input w-full max-w-xs bg-white"
                   />
                   {errors.quiz && (
                     <p className="text-red-500">{errors.quiz.message}</p>
@@ -190,14 +190,14 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
                 </div>
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
-                    <span className="label-text">Total Student</span>
+                    <span className="label-text text-black">Total Student</span>
                   </label>
                   <input
                     type="number"
                     {...register("student", {
                       required: "This Field is Required",
                     })}
-                    className="input-bordered input w-full max-w-xs"
+                    className="input-bordered input w-full max-w-xs bg-white"
                   />
                   {errors.student && (
                     <p className="text-red-500">{errors.student.message}</p>
@@ -206,14 +206,14 @@ const UpdateCourseModal = ({ updateCourse, setUpdateCourse }) => {
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
                     {" "}
-                    <span className="label-text">Photo</span>
+                    <span className="label-text text-black">Photo</span>
                   </label>
                   <input
                     type="file"
                     {...register("image", {
                       required: "Photo is Required",
                     })}
-                    className="file-input-bordered file-input-accent file-input w-full max-w-xs"
+                    className="file-input-bordered file-input-accent file-input w-full max-w-xs bg-white"
                   />
                   {/* <input
               type="file"

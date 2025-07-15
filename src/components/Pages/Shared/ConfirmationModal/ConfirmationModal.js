@@ -9,13 +9,13 @@ const ConfirmationModal = ({
   successAction,
 }) => {
   return (
-    <div>
+    <div >
       <input type="checkbox" id="confirmation-modal" className="modal-toggle" />
-      <div className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
+      <div className="modal modal-bottom sm:modal-middle ">
+        <div className="modal-box bg-white">
           <h3 className="text-lg font-bold">{title}</h3>
           <p className="py-4">{message}</p>
-          <div className="modal-action">
+          <div className="modal-action bg-white">
             <label
               onClick={() => successAction(modalData)}
               htmlFor="confirmation-modal"

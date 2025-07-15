@@ -9,19 +9,19 @@ const ManageTeacher = ({ teacher, i, setDeletingTeacher }) => {
   };
   return (
     <>
-      <tr className="hover">
-        <th>{i + 1}</th>
-        <th>
+      <tr>
+        <th className="bg-white">{i + 1}</th>
+        <th className="bg-white">
           <div className="avatar">
             <div className="w-12 rounded-full ring ring-primary ring-offset-2 ring-offset-base-100">
               <img src={teacher.img_link} alt="" />
             </div>
           </div>
         </th>
-        <td>
+        <td className="bg-white">
           {teacher.first_name} {teacher.last_name}
         </td>
-        <td>
+        <td className="bg-white">
           {teacher?.role !== "admin" && (
             <label
               onClick={() => setDeletingTeacher(teacher)}
@@ -32,7 +32,7 @@ const ManageTeacher = ({ teacher, i, setDeletingTeacher }) => {
             </label>
           )}
         </td>
-        <td>
+        <td className="bg-white">
           {
             <label
               onClick={() => setUpdateTeacher(teacher)}

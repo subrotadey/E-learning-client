@@ -109,7 +109,7 @@ const UpdateTeacherModal = ({
         className="modal-toggle"
       />
       <div className="modal modal-bottom overflow-x-hidden text-center sm:modal-middle">
-        <div className="modal-box">
+        <div className="modal-box bg-white">
           <h3 className="text-lg font-bold">{first_name}</h3>
           <img className="mx-auto  w-40" src={img_link} alt="" />
           <div>
@@ -118,14 +118,14 @@ const UpdateTeacherModal = ({
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
                     {" "}
-                    <span className="label-text">Teacher First Name</span>
+                    <span className="label-text text-black">Teacher First Name</span>
                   </label>
                   <input
                     type="text"
                     {...register("first_name", {
                       required: "This Field is Required",
                     })}
-                    className="input-bordered input w-full max-w-xs"
+                    className="input-bordered input w-full max-w-xs bg-white"
                   />
                   {errors.first_name && (
                     <p className="text-red-500">{errors.first_name.message}</p>
@@ -134,14 +134,14 @@ const UpdateTeacherModal = ({
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
                     {" "}
-                    <span className="label-text">Teacher Last Name</span>
+                    <span className="label-text text-black">Teacher Last Name</span>
                   </label>
                   <input
                     type="text"
                     {...register("last_name", {
                       required: "This Field is Required",
                     })}
-                    className="input-bordered input w-full max-w-xs"
+                    className="input-bordered input w-full max-w-xs bg-white"
                   />
                   {errors.last_name && (
                     <p className="text-red-500">{errors.last_name.message}</p>
@@ -150,14 +150,14 @@ const UpdateTeacherModal = ({
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
                     {" "}
-                    <span className="label-text">Email</span>
+                    <span className="label-text text-black">Email</span>
                   </label>
                   <input
                     type="email"
                     {...register("email", {
                       required: true,
                     })}
-                    className="input-bordered input w-full max-w-xs"
+                    className="input-bordered input w-full max-w-xs bg-white"
                   />
                   {errors.email && (
                     <p className="text-red-500">{errors.email.message}</p>
@@ -166,14 +166,14 @@ const UpdateTeacherModal = ({
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
                     {" "}
-                    <span className="label-text">Designation</span>
+                    <span className="label-text text-black">Designation</span>
                   </label>
                   <input
                     type="text"
                     {...register("designation", {
                       required: "This Field is Required",
                     })}
-                    className="input-bordered input w-full max-w-xs"
+                    className="input-bordered input w-full max-w-xs bg-white"
                   />
                   {errors.designation && (
                     <p className="text-red-500">{errors.designation.message}</p>
@@ -182,14 +182,14 @@ const UpdateTeacherModal = ({
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
                     {" "}
-                    <span className="label-text">Description</span>
+                    <span className="label-text text-black">Description</span>
                   </label>
                   <input
                     type="text"
                     {...register("description", {
                       required: "This Field is Required",
                     })}
-                    className="input-bordered input w-full max-w-xs"
+                    className="input-bordered input w-full max-w-xs bg-white"
                   />
                   {errors.description && (
                     <p className="text-red-500">{errors.description.message}</p>
@@ -198,12 +198,12 @@ const UpdateTeacherModal = ({
                 <div className="form-control w-full max-w-xs">
                   <label className="label">
                     {" "}
-                    <span className="label-text">Photo</span>
+                    <span className="label-text text-black">Photo</span>
                   </label>
                   <input
                     type="file"
                     {...register("image", { required: "Photo is Required" })}
-                    className="file-input-bordered file-input-accent file-input w-full max-w-xs"
+                    className="file-input-bordered file-input-accent file-input w-full max-w-xs bg-white"
                   />
                   {/* <input type="file" {...register("image", { required: "Photo is Required", })} className="file-input-bordered file-input-accent file-input w-full max-w-xs"/> */}
                   {errors.image && (
@@ -211,7 +211,7 @@ const UpdateTeacherModal = ({
                   )}
                 </div>
                 <input
-                  className="btn-accent btn mt-4 w-full"
+                  className="btn-accent btn mt-4 w-full bg-white"
                   value="Add Teacher"
                   type="submit"
                 />

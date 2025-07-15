@@ -6,17 +6,17 @@ const ManageCourse = ({ course, i, setDeletingCourse }) => {
   const [updateCourse, setUpdateCourse] = useState(null);
   return (
     <>
-      <tr className="hover">
-        <th>{i + 1}</th>
-        <th>
+      <tr>
+        <th className="bg-white">{i + 1}</th>
+        <th className="bg-white">
           <div className="avatar">
             <div className="w-12 rounded-full ring ring-primary ring-offset-2 ring-offset-base-100">
               <img src={course.img} alt="" />
             </div>
           </div>
         </th>
-        <td>{course.heading}</td>
-        <td>
+        <td className="bg-white">{course.heading}</td>
+        <td className="bg-white">
           {course?.role !== "admin" && (
             <label
               onClick={() => setDeletingCourse(course)}
@@ -27,7 +27,7 @@ const ManageCourse = ({ course, i, setDeletingCourse }) => {
             </label>
           )}
         </td>
-        <td>
+        <td className="bg-white">
           {
             <label
               onClick={() => setUpdateCourse(course)}
