@@ -28,10 +28,10 @@ const Books = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="hero min-h-screen px-12">
+        <div className="hero h-[400px] px-12">
           <div className="hero-content flex-col lg:flex-row-reverse">
-            {/* <img src={banner} className="lg:max-w-sm md:max-w-sm sm:w-100 rounded-lg shadow-2xl" alt="" /> */}
-            <div className="dark:text-black">
+            
+            <div className="">
               <h1 className="text-5xl font-bold">
                 Books were safer than other people anyway
               </h1>
@@ -48,9 +48,7 @@ const Books = () => {
           ) : (
             <div className="pt-12">
               <div className="lg:mx-12 mx-3 flex justify-center  mt-4">
-            {/* <div className="lg:text-3xl text-2xl italic ">
-              <p>Courses</p>
-            </div> */}
+            
             <div className="relative flex items-center text-gray-400 focus-within:text-gray-200">
               <BsSearch className="absolute w-5 h-5 ml-3 pointer-events-none"></BsSearch>
               <input
@@ -63,7 +61,7 @@ const Books = () => {
             </div>
           </div>
               <h1 className="uppercase text-center text-5xl my-4">Find YOur favorite book</h1>
-              <div className="mx-12 grid grid-cols-1 gap-4 lg:grid-cols-4 my-12">
+              <div className=" grid grid-cols-1 gap-4 lg:grid-cols-4 w-11/12 mx-auto">
                 {books
                 .filter((book) => book.title.toLowerCase().includes(query))
                 .map((book) => (
