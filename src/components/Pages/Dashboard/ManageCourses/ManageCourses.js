@@ -20,7 +20,7 @@ const ManageCourses = () => {
   const { courses, refetch, isLoading } = useLoaderData();
 
   const handleDeleteCourse = (course) => {
-    fetch(`https://onlineeulogy.onrender.com/courses/${course._id}`, {
+    fetch(`https://e-learning-server-hazel.vercel.app/courses/${course._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

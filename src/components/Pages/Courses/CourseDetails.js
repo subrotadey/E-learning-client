@@ -7,7 +7,7 @@ const CourseDetails = () => {
   const [selectedDate] = useState(new Date());
 
   return (
-    <div className="lg:p-20">
+    <div className="pt-28 w-11/12 mx-auto">
       <CourseBanner selectedDate={selectedDate}></CourseBanner>
       <CourseData selectedDate={selectedDate}></CourseData>
       <CourseReviews></CourseReviews>

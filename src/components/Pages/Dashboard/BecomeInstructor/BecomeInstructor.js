@@ -33,7 +33,7 @@ const BecomeInstructor = () => {
                     };
 
                     // Save instructor information to the server
-                    fetch("https://onlineeulogy.onrender.com/instructor-requests", {
+                    fetch("https://e-learning-server-hazel.vercel.app/instructor-requests", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

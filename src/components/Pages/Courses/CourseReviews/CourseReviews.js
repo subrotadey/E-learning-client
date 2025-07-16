@@ -20,8 +20,8 @@ const CourseReviews = () => {
     // Using useCallback to memoize the function
     const fetchReviews = useCallback(async () => {
         const [resReviews, resAverage] = await Promise.all([
-            fetch(`https://onlineeulogy.onrender.com/reviews/${courseId}`),
-            fetch(`https://onlineeulogy.onrender.com/reviews/average/${courseId}`)
+            fetch(`https://e-learning-server-hazel.vercel.app/reviews/${courseId}`),
+            fetch(`https://e-learning-server-hazel.vercel.app/reviews/average/${courseId}`)
         ])
         const [reviewsData, averageData] = await Promise.all([
             resReviews.json(), resAverage.json()
@@ -37,7 +37,7 @@ const CourseReviews = () => {
 
     useEffect(() => {
     if (user?.email) {
-        fetch(`https://onlineeulogy.onrender.com/users/role/${user.email}`)
+        fetch(`https://e-learning-server-hazel.vercel.app/users/role/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log("User Role:", data);
@@ -50,7 +50,7 @@ const CourseReviews = () => {
 
 
     const handleDelete = (review) => {
-        fetch(`https://onlineeulogy.onrender.com/reviews/${review._id}`, {
+        fetch(`https://e-learning-server-hazel.vercel.app/reviews/${review._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,

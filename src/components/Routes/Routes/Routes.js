@@ -75,7 +75,7 @@ const router = createBrowserRouter([
       {
         path: "/teachers",
         loader: async () => {
-          return fetch("https://onlineeulogy.onrender.com/teachers");
+          return fetch("https://e-learning-server-hazel.vercel.app/teachers");
         },
         element: <Teachers></Teachers>,
       },
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
         path: "/teachers/:teacherId",
         loader: async ({ params }) => {
           return fetch(
-            `https://onlineeulogy.onrender.com/teachers/${params.teacherId}`
+            `https://e-learning-server-hazel.vercel.app/teachers/${params.teacherId}`
           );
         },
         element: <TeacherDetails></TeacherDetails>,
@@ -100,7 +100,7 @@ const router = createBrowserRouter([
         path: "/course/:courseId",
         loader: async ({ params }) => {
           return fetch(
-            `https://onlineeulogy.onrender.com/courses/${params.courseId}`
+            `https://e-learning-server-hazel.vercel.app/courses/${params.courseId}`
           );
         },
         element: (
@@ -116,7 +116,7 @@ const router = createBrowserRouter([
       {
         path: "/books",
         loader: async () => {
-          return fetch("https://onlineeulogy.onrender.com/books");
+          return fetch("https://e-learning-server-hazel.vercel.app/books");
         },
         element: <Books></Books>,
       },
@@ -124,7 +124,7 @@ const router = createBrowserRouter([
         path: "/books/:bookId",
         loader: async ({ params }) => {
           return fetch(
-            `https://onlineeulogy.onrender.com/books/${params.bookId}`
+            `https://e-learning-server-hazel.vercel.app/books/${params.bookId}`
           );
         },
         element: <BookDetail></BookDetail>,
@@ -183,7 +183,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/managecourses",
         loader: async () => {
-          return fetch("https://onlineeulogy.onrender.com/courses");
+          return fetch("https://e-learning-server-hazel.vercel.app/courses");
         },
         element: (
           <AdminRoute>
@@ -224,7 +224,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://onlineeulogy.onrender.com/bookings/${params.id}`
+            `https://e-learning-server-hazel.vercel.app/bookings/${params.id}`
           ),
       },
     ],

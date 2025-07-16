@@ -33,7 +33,7 @@ const AddTeacher = () => {
             description: data.description,
           };
 
-          fetch("https://onlineeulogy.onrender.com/teachers", {
+          fetch("https://e-learning-server-hazel.vercel.app/teachers", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -149,7 +149,7 @@ const AddTeacher = () => {
             {...register("image", {
               required: "Photo is Required",
             })}
-            className="file-input file-input-bordered w-full bg-white"
+            className="file-input file-input-bordered file-input-accent w-full bg-white"
           />
           {errors.image && (
             <p className="text-red-500 text-sm">{errors.image.message}</p>
@@ -161,7 +161,7 @@ const AddTeacher = () => {
           <input
             type="submit"
             value="Add Teacher"
-            className="btn btn-accent w-full"
+            className="btn btn-accent w-full "
           />
         </div>
       </form>

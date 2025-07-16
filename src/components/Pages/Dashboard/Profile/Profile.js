@@ -8,7 +8,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://onlineeulogy.onrender.com/users/role/${user.email}`, {
+      fetch(`https://e-learning-server-hazel.vercel.app/users/role/${user.email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },

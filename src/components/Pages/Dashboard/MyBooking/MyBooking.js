@@ -7,7 +7,7 @@ const MyBooking = () => {
   const { user } = useContext(AuthContext);
   // console.log(user);
 
-  const url = `https://onlineeulogy.onrender.com/bookings?email=${user?.email}`;
+  const url = `https://e-learning-server-hazel.vercel.app/bookings?email=${user?.email}`;
 
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings", user?.email],

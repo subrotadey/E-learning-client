@@ -16,7 +16,7 @@ const Courses = () => {
 
   // Load courses from backend
   useEffect(() => {
-    const url = `https://onlineeulogy.onrender.com/courses?page=${page}&size=${size}`;
+    const url = `https://e-learning-server-hazel.vercel.app/courses?page=${page}&size=${size}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -52,47 +52,47 @@ const Courses = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="my-12 w-11/12 mx-auto">
+        <div className="my-12">
           <div className="text-center text-2xl uppercase italic lg:text-3xl">
             <p>Our Most Valuable Courses</p>
           </div>
 
-          <div className="flex items-center justify-between my-6 ">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 my-6 px-4">
             {/* Search Box */}
-            <div className="mx-3 mt-4 flex  lg:mx-12">
-              <div className="relative flex items-center  focus-within:text-gray-200">
-                <BsSearch className="pointer-events-none absolute ml-3 h-5 w-5" />
+            <div className="w-full lg:w-auto">
+              <div className="relative w-full">
+                <BsSearch className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
                 <input
                   type="search"
                   name="search"
                   value={query}
-                  placeholder="Search by name"
-                  className="bg-white input max-w-xs border-none pl-10 pr-3 font-semibold ring-2 ring-gray-300 focus:ring-2 focus:ring-gray-500"
                   onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search by name"
+                  className="input w-full pl-10 pr-4 py-2 bg-white font-semibold border border-gray-300 focus:border-gray-500 focus:ring-1 focus:ring-gray-500 transition duration-200"
                 />
               </div>
             </div>
+
             {/* Price Filter */}
-            <div className="flex gap-2 justify-center ">
+            <div className="flex flex-col sm:flex-row gap-2 items-center">
               <input
                 type="number"
                 placeholder="Min Price"
-                className="input input-bordered w-28 bg-white"
+                className="input input-bordered w-32 bg-white"
                 onChange={(e) => setMinPrice(Number(e.target.value))}
               />
               <input
                 type="number"
                 placeholder="Max Price"
-                className="input input-bordered w-28 bg-white"
+                className="input input-bordered w-32 bg-white"
                 onChange={(e) =>
-                  setMaxPrice(
-                    e.target.value ? Number(e.target.value) : Infinity
-                  )
+                  setMaxPrice(e.target.value ? Number(e.target.value) : Infinity)
                 }
               />
             </div>
+
             {/* Reset Filters Button */}
-            <div className="text-center mt-4">
+            <div className="text-center">
               <button
                 onClick={resetFilters}
                 className="btn btn-outline btn-error btn-sm"
@@ -101,15 +101,7 @@ const Courses = () => {
               </button>
             </div>
           </div>
-
-          {/* Filters */}
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-center text-center">
-
-
-          </div>
-
-
-
+          
           <div className="divider"></div>
 
           {/* Courses */}

@@ -13,12 +13,12 @@ const CourseData = ({ selectedDate }) => {
 
   return (
     <div>
-      <div className="text-center">
-        <div className="justify-evenly px-2 text-white lg:flex">
-          <div>{/* <h2 className="text-2xl">{heading}</h2> */}</div>
+      <div className="text-center ">
+        <div className="justify-evenly px-2 lg:flex">
+          <div><h2 className="text-2xl">{heading}</h2></div>
         </div>
         <div className="divider mx-auto w-1/2"></div>
-        <div className="grid grid-cols-2 gap-4 text-white lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4  lg:grid-cols-4">
           <div className="mx-auto flex  text-lg">
             <BsClock className="my-auto mr-3 "></BsClock>
             <p>Weeks: {weeks}</p>
@@ -36,9 +36,8 @@ const CourseData = ({ selectedDate }) => {
             <p>Students: {students}</p>
           </div>
         </div>
-        <small></small>
       </div>
-      <div className="mt-24 text-center">
+      <div className="mt-4 text-center">
         <label htmlFor="booking-modal" className="btn-primary btn my-3">
           Enroll Now
         </label>

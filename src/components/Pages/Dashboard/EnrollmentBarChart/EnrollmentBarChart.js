@@ -14,7 +14,7 @@ const EnrollmentBarChart = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://onlineeulogy.onrender.com/enroll-stats')
+    fetch('https://e-learning-server-hazel.vercel.app/enroll-stats')
       .then(res => res.json())
       .then(data => setData(data))
       .catch(error => console.error('Error fetching chart data:', error));

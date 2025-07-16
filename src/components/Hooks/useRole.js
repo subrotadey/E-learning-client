@@ -5,7 +5,7 @@ const useRole = (email) => {
   const { data: roleData = {}, isLoading } = useQuery({
     queryKey: ["role", email],
     queryFn: async () => {
-      const res = await fetch(`https://onlineeulogy.onrender.com/users/role/${email}`);
+      const res = await fetch(`https://e-learning-server-hazel.vercel.app/users/role/${email}`);
       return res.json();
     },
     enabled: !!email,

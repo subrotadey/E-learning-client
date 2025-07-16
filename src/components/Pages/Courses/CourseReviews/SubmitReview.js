@@ -34,7 +34,7 @@ const SubmitReview = ({ courseId, setAverage, refetchReviews }) => {
         };
         // Submit review to server
 
-        fetch("https://onlineeulogy.onrender.com/reviews", {
+        fetch("https://e-learning-server-hazel.vercel.app/reviews", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -57,7 +57,7 @@ const SubmitReview = ({ courseId, setAverage, refetchReviews }) => {
                 refetchReviews();
 
                 // Update average rating
-                fetch(`https://onlineeulogy.onrender.com/reviews/average/${courseId}`)
+                fetch(`https://e-learning-server-hazel.vercel.app/reviews/average/${courseId}`)
                     .then(res => res.json())
                     .then(avg => {
                         setAverage(avg?.averageRating || 0);

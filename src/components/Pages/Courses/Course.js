@@ -8,7 +8,7 @@ const Course = ({ course }) => {
 
 
   useEffect(() => {
-    fetch(`https://onlineeulogy.onrender.com/reviews/average/${_id}`)
+    fetch(`https://e-learning-server-hazel.vercel.app/reviews/average/${_id}`)
       .then(res => res.json())
       .then(data => {
         setAverage(data?.averageRating || 0);

@@ -42,18 +42,12 @@ const DashboardBar = () => {
         { name: 'My Profile', path: '/dashboard' },
         { name: 'Enrollment Stats', path: '/dashboard/enroll-stats' },
         { name: 'All Users', path: '/dashboard/allusers' },
-        { name: 'Instructor Request', path: '/dashboard/instructor-requests' },
-        { name: 'Manage Courses', path: '/dashboard/managecourses' },
-        { name: 'Add Course', path: '/dashboard/addcourse' },
-        { name: 'Manage Teachers', path: '/dashboard/manageteachers' },
-        { name: 'Add a Teacher', path: '/dashboard/addteacher' },
         { name: 'My Courses', path: '/dashboard/my-booking' },
-        { name: 'All Users', path: '/dashboard/allusers' },
-        { name: 'Instructor Request', path: '/dashboard/instructor-requests' },
         { name: 'Manage Courses', path: '/dashboard/managecourses' },
-        { name: 'Add Course', path: '/dashboard/addcourse' },
         { name: 'Manage Teachers', path: '/dashboard/manageteachers' },
+        { name: 'Add Course', path: '/dashboard/addcourse' },
         { name: 'Add a Teacher', path: '/dashboard/addteacher' },
+        { name: 'Instructor Request', path: '/dashboard/instructor-requests' },
     ];
 
     const navLinks = isAdmin ? adminNavLinks : isInstructor ? instructorNavLinks : userNavLinks;

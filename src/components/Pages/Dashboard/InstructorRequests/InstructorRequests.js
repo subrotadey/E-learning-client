@@ -19,7 +19,7 @@ const InstructorRequests = () => {
         queryKey: ["instructorRequests"],
         queryFn: async () => {
             try {
-                const res = await fetch("https://onlineeulogy.onrender.com/instructor-requests", {
+                const res = await fetch("https://e-learning-server-hazel.vercel.app/instructor-requests", {
                     headers: {
                         authorization: `bearer ${localStorage.getItem("accessToken")}`,
                     },
@@ -51,7 +51,7 @@ const InstructorRequests = () => {
 
         try {
             // Add to teachers collection
-            const addRes = await fetch("https://onlineeulogy.onrender.com/teachers", {
+            const addRes = await fetch("https://e-learning-server-hazel.vercel.app/teachers", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -64,7 +64,7 @@ const InstructorRequests = () => {
             if (addResult.insertedId) {
                 // Update request status to approved
                 const updateRes = await fetch(
-                    `https://onlineeulogy.onrender.com/instructor-requests/${request._id}`,
+                    `https://e-learning-server-hazel.vercel.app/instructor-requests/${request._id}`,
                     {
                         method: "PUT",
                         headers: {
@@ -95,7 +95,7 @@ const InstructorRequests = () => {
     const handleReject = async (request) => {
         try {
             const deleteRes = await fetch(
-                `https://onlineeulogy.onrender.com/instructor-requests/${request._id}`,
+                `https://e-learning-server-hazel.vercel.app/instructor-requests/${request._id}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -120,9 +120,9 @@ const InstructorRequests = () => {
     if (isLoading) return <Loading />;
 
     return (
-        <section>
-            <h2 className="text-3xl mb-4">
-                Pending Instructor Requests: {requests?.length}
+        <section className="w-11/12 mx-auto pt-12">
+            <h2 className="text-3xl mb-4 text-center">
+                Instructor Requests: {requests?.length}
             </h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">

@@ -25,7 +25,7 @@ const BookingModal = ({ selectedDate, heading, price }) => {
       phone,
     };
 
-    fetch("https://onlineeulogy.onrender.com/bookings", {
+    fetch("https://e-learning-server-hazel.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -43,28 +43,32 @@ const BookingModal = ({ selectedDate, heading, price }) => {
   };
   return (
     <>
-      <input type="checkbox" id="booking-modal" className="modal-toggle" />
+      <input type="checkbox" id="booking-modal" className="modal-toggle bg-white" />
       <div className="modal">
-        <div className="modal-box relative">
+        <div className="modal-box relative bg-white">
           <label
             htmlFor="booking-modal"
             className="btn-sm btn-circle btn absolute right-2 top-2"
           >
             ✕
           </label>
-          <h3 className="text-lg font-bold">Welcome</h3>
-          <form onSubmit={handleBooking} action="">
+          <h2 className="text-xl font-bold mb-4 text-center">Booking Form</h2>
+          <form
+            onSubmit={handleBooking}
+            action=""
+            className="text-white p-6 rounded-lg shadow-md w-full max-w-xl mx-auto"
+          >
             <input
               name="heading"
               type="text"
-              className="input-bordered input-info input mt-4 w-full"
+              className="input input-bordered  mt-4 w-full"
               value={heading}
               disabled
             />
             <input
               name="date"
               type="text"
-              className="input-bordered input-info input mt-4  w-full"
+              className="input input-bordered  mt-4 w-full"
               value={date}
               disabled
             />
@@ -74,7 +78,7 @@ const BookingModal = ({ selectedDate, heading, price }) => {
               defaultValue={user?.displayName}
               disabled
               placeholder="Your Name"
-              className="input-bordered input-info input mt-4 w-full"
+              className="input input-bordered  mt-4 w-full"
             />
             <input
               name="email"
@@ -82,7 +86,7 @@ const BookingModal = ({ selectedDate, heading, price }) => {
               defaultValue={user?.email}
               disabled
               placeholder="Your Email"
-              className="input-bordered input-info input mt-4 w-full"
+              className="input input-bordered  mt-4 w-full"
             />
             <input
               name="price"
@@ -90,20 +94,21 @@ const BookingModal = ({ selectedDate, heading, price }) => {
               defaultValue={price}
               disabled
               placeholder="Price"
-              className="input-bordered input-info input mt-4 w-full"
+              className="input input-bordered  mt-4 w-full"
             />
             <input
               name="phone"
               type="text"
               placeholder="Your Phone Number"
-              className="input-bordered input-info input mt-4  w-full"
+              className="input input-bordered  mt-4 w-full"
             />
             <input
               type="submit"
               value="Submit"
-              className="max-w btn-info btn mt-4 w-full"
+              className="btn btn-info mt-6 w-full"
             />
           </form>
+
         </div>
       </div>
     </>
